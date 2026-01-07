@@ -5,22 +5,22 @@ function showPage(pageName) {
   // Hide all pages
   const pages = document.querySelectorAll('[data-page]');
   pages.forEach(page => page.classList.remove('active'));
-  
+
   // Show target page
   const targetPage = document.querySelector(`[data-page="${pageName}"]`);
   if (targetPage) {
     targetPage.classList.add('active');
   }
-  
+
   // Update nav buttons
   const navLinks = document.querySelectorAll('[data-nav-link]');
   navLinks.forEach(link => link.classList.remove('active'));
-  
+
   const activeLink = document.querySelector(`[onclick="showPage('${pageName}')"]`);
   if (activeLink) {
     activeLink.classList.add('active');
   }
-  
+
   window.scrollTo(0, 0);
 }
 
@@ -144,42 +144,69 @@ const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
+// validate function
+const validateForm = function () {
+  if (form.checkValidity()) {
+    formBtn.removeAttribute("disabled");
+  } else {
+    formBtn.setAttribute("disabled", "");
+  }
+};
 
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
+// add event to form (using delegation for better performance and reliability)
+if (form) {
+  form.addEventListener("input", validateForm);
+  form.addEventListener("change", validateForm);
 
-  });
+  // Initial check
+  validateForm();
 }
 
-// Handle Netlify form submission via AJAX
+// Handle Formspree form submission via AJAX
 if (form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const formData = new FormData(form);
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-      .then(() => {
-        // Success! Clear form and show a message
-        form.reset();
-        alert("Thank you! Your message has been sent successfully.");
-        // Optional: Disable button again after reset
-        if (formBtn) formBtn.setAttribute("disabled", "");
+    // Disable button and show loading state
+    if (formBtn) {
+      formBtn.setAttribute("disabled", "");
+      const originalText = formBtn.innerHTML;
+      formBtn.innerHTML = '<span>Sending...</span>';
+
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       })
-      .catch((error) => {
-        alert("Oops! There was a problem submitting your form.");
-      });
+        .then(response => {
+          if (response.ok) {
+            // Success! Clear form and show a message
+            form.reset();
+            alert("Thank you! Your message has been sent successfully.");
+          } else {
+            response.json().then(data => {
+              if (Object.hasOwn(data, 'errors')) {
+                alert(data["errors"].map(error => error["message"]).join(", "));
+              } else {
+                alert("Oops! There was a problem submitting your form");
+              }
+            })
+          }
+        })
+        .catch((error) => {
+          alert("Oops! There was a problem submitting your form");
+        })
+        .finally(() => {
+          // Reset button state
+          formBtn.innerHTML = originalText;
+          // Re-validate form
+          validateForm();
+        });
+    }
   });
 }
 
@@ -189,27 +216,25 @@ if (form) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
-console.log('Navigation setup:', navigationLinks.length, 'links,', pages.length, 'pages');
+
 
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-    console.log('Clicked:', this.textContent);
-    
+
+
     const targetPage = this.textContent.toLowerCase().trim();
-    console.log('Target page:', targetPage);
+
 
     // Remove active class from all pages first
     for (let j = 0; j < pages.length; j++) {
       pages[j].classList.remove("active");
-      console.log('Removed active from:', pages[j].dataset.page);
     }
 
     // Add active class to target page
     for (let j = 0; j < pages.length; j++) {
       if (targetPage === pages[j].dataset.page) {
         pages[j].classList.add("active");
-        console.log('Added active to:', pages[j].dataset.page);
         window.scrollTo(0, 0);
         break;
       }

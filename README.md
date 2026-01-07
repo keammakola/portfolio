@@ -7,7 +7,7 @@ A modern, responsive portfolio website showcasing data engineering, machine lear
 - **Responsive Design** - Works on all devices
 - **Modern Animations** - Floating elements, gradient effects, and smooth transitions
 - **Contact Form** - Functional contact form with Netlify Forms integration
-- **GitHub Stats** - Live GitHub statistics integration
+
 - **Tech Stack Showcase** - Interactive technology cards with hover effects
 
 ##  Tech Stack

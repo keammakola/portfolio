@@ -1,5 +1,29 @@
 'use strict';
 
+// Simple page navigation function
+function showPage(pageName) {
+  // Hide all pages
+  const pages = document.querySelectorAll('[data-page]');
+  pages.forEach(page => page.classList.remove('active'));
+  
+  // Show target page
+  const targetPage = document.querySelector(`[data-page="${pageName}"]`);
+  if (targetPage) {
+    targetPage.classList.add('active');
+  }
+  
+  // Update nav buttons
+  const navLinks = document.querySelectorAll('[data-nav-link]');
+  navLinks.forEach(link => link.classList.remove('active'));
+  
+  const activeLink = document.querySelector(`[onclick="showPage('${pageName}')"]`);
+  if (activeLink) {
+    activeLink.classList.add('active');
+  }
+  
+  window.scrollTo(0, 0);
+}
+
 
 
 // element toggle function
@@ -138,24 +162,24 @@ for (let i = 0; i < formInputs.length; i++) {
 if (form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    
+
     const formData = new FormData(form);
-    
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     })
-    .then(() => {
-      // Success! Clear form and show a message
-      form.reset();
-      alert("Thank you! Your message has been sent successfully.");
-      // Optional: Disable button again after reset
-      if (formBtn) formBtn.setAttribute("disabled", "");
-    })
-    .catch((error) => {
-      alert("Oops! There was a problem submitting your form.");
-    });
+      .then(() => {
+        // Success! Clear form and show a message
+        form.reset();
+        alert("Thank you! Your message has been sent successfully.");
+        // Optional: Disable button again after reset
+        if (formBtn) formBtn.setAttribute("disabled", "");
+      })
+      .catch((error) => {
+        alert("Oops! There was a problem submitting your form.");
+      });
   });
 }
 
@@ -165,20 +189,37 @@ if (form) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
+console.log('Navigation setup:', navigationLinks.length, 'links,', pages.length, 'pages');
+
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
+    console.log('Clicked:', this.textContent);
+    
+    const targetPage = this.textContent.toLowerCase().trim();
+    console.log('Target page:', targetPage);
 
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
+    // Remove active class from all pages first
+    for (let j = 0; j < pages.length; j++) {
+      pages[j].classList.remove("active");
+      console.log('Removed active from:', pages[j].dataset.page);
+    }
+
+    // Add active class to target page
+    for (let j = 0; j < pages.length; j++) {
+      if (targetPage === pages[j].dataset.page) {
+        pages[j].classList.add("active");
+        console.log('Added active to:', pages[j].dataset.page);
         window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
+        break;
       }
     }
+
+    // Update navigation link active states
+    for (let j = 0; j < navigationLinks.length; j++) {
+      navigationLinks[j].classList.remove("active");
+    }
+    this.classList.add("active");
 
   });
 }

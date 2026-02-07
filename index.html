@@ -32,6 +32,27 @@
 </head>
 
 <body>
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="terminal-loader">
+      <div class="terminal-header">
+        <div class="terminal-button red"></div>
+        <div class="terminal-button yellow"></div>
+        <div class="terminal-button green"></div>
+      </div>
+      <div class="terminal-window">
+        <p class="terminal-text">> Initializing...</p>
+        <p class="terminal-text delay-1">> Loading modules...</p>
+        <p class="terminal-text delay-2">> Accessing mainframe...</p>
+        <p class="terminal-text delay-3">> Access granted.</p>
+        <p class="blink cursor">_</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cursor Spotlight -->
+  <div class="cursor-spotlight"></div>
+
   <div class="scroll-progress"></div>
 
   <!-- Navigation -->
@@ -228,10 +249,36 @@
     </div>
   </section>
 
-  <!-- Back to Top Button -->
-  <a href="#home" class="back-to-top" aria-label="Back to Top">
-    <ion-icon name="arrow-up-outline"></ion-icon>
-  </a>
+  <!-- GitHub Activity -->
+  <section id="github" class="github section-padding">
+    <div class="container">
+      <h2 class="section-title fade-in-up">GitHub Activity</h2>
+      <div class="github-heatmap fade-in-up">
+        <a href="https://github.com/keammakola" target="_blank">
+          <img src="https://ghchart.rshah.org/38bdf8/keammakola" alt="Kea Mmakola's GitHub Contribution Chart" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Speed Dial -->
+  <div class="speed-dial">
+    <button class="fab-main" aria-label="Toggle Menu">
+      <ion-icon name="add-outline"></ion-icon>
+    </button>
+    <div class="fab-options">
+      <a href="#home" class="fab-action" aria-label="Back to Top" data-tooltip="Top">
+        <ion-icon name="arrow-up-outline"></ion-icon>
+      </a>
+      <a href="mailto:keammakola@gmail.com" class="fab-action" aria-label="Email Me" data-tooltip="Email">
+        <ion-icon name="mail-outline"></ion-icon>
+      </a>
+      <a href="https://github.com/keammakola" target="_blank" class="fab-action" aria-label="GitHub"
+        data-tooltip="GitHub">
+        <ion-icon name="logo-github"></ion-icon>
+      </a>
+    </div>
+  </div>
 
   <!-- Education Section -->
   <section id="education" class="education section-padding">

@@ -184,20 +184,7 @@ document.querySelectorAll('.project-card, .service-card').forEach(card => {
  */
 const backToTopBtn = document.querySelector('.back-to-top');
 
-if (backToTopBtn) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      backToTopBtn.classList.add('active');
-    } else {
-      backToTopBtn.classList.remove('active');
-    }
-  });
 
-  backToTopBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
 
 /**
  * Theme Toggle
@@ -238,6 +225,47 @@ if (themeToggleBtn) {
         themeIcon.setAttribute('name', 'sunny-outline');
       }
     }
+  });
+}
+
+/**
+ * Preloader Control
+ */
+document.addEventListener('DOMContentLoaded', () => {
+  const preloader = document.querySelector('.preloader');
+  if (preloader) {
+    // The last text appears at ~1.2s (0.9s delay + 0.3s anim)
+    // We start the timer immediately to overlap with asset loading
+    setTimeout(() => {
+      preloader.classList.add('hidden');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 100);
+    }, 1300);
+  }
+});
+
+/**
+ * Spotlight Cursor
+ */
+const cursorSpotlight = document.querySelector('.cursor-spotlight');
+
+if (cursorSpotlight) {
+  document.addEventListener('mousemove', (e) => {
+    // Use requestAnimationFrame for smoother performance
+    requestAnimationFrame(() => {
+      cursorSpotlight.style.left = e.clientX + 'px';
+      cursorSpotlight.style.top = e.clientY + 'px';
+    });
+  });
+
+  // Hide custom cursor when leaving window
+  document.addEventListener('mouseout', () => {
+    cursorSpotlight.style.opacity = '0';
+  });
+
+  document.addEventListener('mouseover', () => {
+    cursorSpotlight.style.opacity = '1';
   });
 }
 

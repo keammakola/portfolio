@@ -1,250 +1,96 @@
 'use strict';
 
-// Simple page navigation function
-function showPage(pageName) {
-  // Hide all pages
-  const pages = document.querySelectorAll('[data-page]');
-  pages.forEach(page => page.classList.remove('active'));
+/**
+ * Mobile Menu Toggle
+ */
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
 
-  // Show target page
-  const targetPage = document.querySelector(`[data-page="${pageName}"]`);
-  if (targetPage) {
-    targetPage.classList.add('active');
-  }
-
-  // Update nav buttons
-  const navLinks = document.querySelectorAll('[data-nav-link]');
-  navLinks.forEach(link => link.classList.remove('active'));
-
-  const activeLink = document.querySelector(`[onclick="showPage('${pageName}')"]`);
-  if (activeLink) {
-    activeLink.classList.add('active');
-  }
-
-  window.scrollTo(0, 0);
-}
-
-
-
-// element toggle function
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
-
-
-
-// sidebar variables
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-
-
-
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
-
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
-
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
-}
-
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
-
-  testimonialsItem[i].addEventListener("click", function () {
-
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-
-    testimonialsModalFunc();
-
-  });
-
-}
-
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
-
-
-
-// custom select variables
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
-
-select.addEventListener("click", function () { elementToggleFunc(this); });
-
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
-
-  });
-}
-
-// filter variables
-const filterItems = document.querySelectorAll("[data-filter-item]");
-
-const filterFunc = function (selectedValue) {
-
-  for (let i = 0; i < filterItems.length; i++) {
-
-    if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
-    } else {
-      filterItems[i].classList.remove("active");
-    }
-
-  }
-
-}
-
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
-
-for (let i = 0; i < filterBtn.length; i++) {
-
-  filterBtn[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
-
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
-
-  });
-
-}
-
-
-
-// contact form variables
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-
-// validate function
-const validateForm = function () {
-  if (form.checkValidity()) {
-    formBtn.removeAttribute("disabled");
+mobileMenuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  const icon = mobileMenuBtn.querySelector('ion-icon');
+  if (navLinks.classList.contains('active')) {
+    icon.setAttribute('name', 'close-outline');
   } else {
-    formBtn.setAttribute("disabled", "");
+    icon.setAttribute('name', 'menu-outline');
   }
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    mobileMenuBtn.querySelector('ion-icon').setAttribute('name', 'menu-outline');
+  });
+});
+
+
+/**
+ * Active Link Highlighting on Scroll
+ */
+const sections = document.querySelectorAll('section');
+const navItems = document.querySelectorAll('.nav-link');
+
+function activeLink() {
+  let current = '';
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+
+    if (window.scrollY >= (sectionTop - 150)) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navItems.forEach(item => {
+    item.classList.remove('active');
+    if (item.getAttribute('href').includes(current)) {
+      item.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', activeLink);
+
+
+/**
+ * Scroll Reveal Animation
+ */
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.1
 };
 
-// add event to form (using delegation for better performance and reliability)
-if (form) {
-  form.addEventListener("input", validateForm);
-  form.addEventListener("change", validateForm);
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Stop observing once visible if you want it to only animate once
+      // observer.unobserve(entry.target); 
+    }
+  });
+}, observerOptions);
 
-  // Initial check
-  validateForm();
-}
+document.querySelectorAll('.fade-in-up').forEach(element => {
+  observer.observe(element);
+});
 
-// Handle Formspree form submission via AJAX
-if (form) {
-  form.addEventListener("submit", function (e) {
+
+/**
+ * Smooth Scrolling for Anchor Links (Polyfill-like behavior)
+ */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
     e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const targetSection = document.querySelector(targetId);
 
-    const formData = new FormData(form);
-
-    // Disable button and show loading state
-    if (formBtn) {
-      formBtn.setAttribute("disabled", "");
-      const originalText = formBtn.innerHTML;
-      formBtn.innerHTML = '<span>Sending...</span>';
-
-      fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-        .then(response => {
-          if (response.ok) {
-            // Success! Clear form and show a message
-            form.reset();
-            alert("Thank you! Your message has been sent successfully.");
-          } else {
-            response.json().then(data => {
-              if (Object.hasOwn(data, 'errors')) {
-                alert(data["errors"].map(error => error["message"]).join(", "));
-              } else {
-                alert("Oops! There was a problem submitting your form");
-              }
-            })
-          }
-        })
-        .catch((error) => {
-          alert("Oops! There was a problem submitting your form");
-        })
-        .finally(() => {
-          // Reset button state
-          formBtn.innerHTML = originalText;
-          // Re-validate form
-          validateForm();
-        });
+    if (targetSection) {
+      targetSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   });
-}
-
-
-
-// page navigation variables
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-
-
-
-// add event to all nav link
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
-
-
-    const targetPage = this.textContent.toLowerCase().trim();
-
-
-    // Remove active class from all pages first
-    for (let j = 0; j < pages.length; j++) {
-      pages[j].classList.remove("active");
-    }
-
-    // Add active class to target page
-    for (let j = 0; j < pages.length; j++) {
-      if (targetPage === pages[j].dataset.page) {
-        pages[j].classList.add("active");
-        window.scrollTo(0, 0);
-        break;
-      }
-    }
-
-    // Update navigation link active states
-    for (let j = 0; j < navigationLinks.length; j++) {
-      navigationLinks[j].classList.remove("active");
-    }
-    this.classList.add("active");
-
-  });
-}
+});

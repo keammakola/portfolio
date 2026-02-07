@@ -2,890 +2,325 @@
 <html lang="en">
 
 <head>
-  <script async defer src="https://keamedia.hyena-cliff.ts.net/tracker.js" data-website-id="cmku987s10axj7fs2kq2zzwqs"></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kea's Portfolio</title>
+  <title>Kea Mmakola | Software Engineer & Cloud/Data Enthusiast</title>
+  <meta name="description"
+    content="Portfolio of Keabetswe Mmakola, a Software Engineer & Cloud/Data Enthusiast based in Johannesburg.">
 
-  <!--
-    - favicon
-  -->
+  <!-- Favicon -->
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
 
-  <!--
-    - custom css link
-  -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!--
-    - google font link
-  -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Ion Icons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Analytics -->
+  <script async defer src="https://keamedia.hyena-cliff.ts.net/tracker.js"
+    data-website-id="cmku987s10axj7fs2kq2zzwqs"></script>
 </head>
 
 <body>
 
-  <!--
-    - #MAIN
-  -->
-
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Keabetswe Mmakola" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Keabetswe Mmakola">Kea Mmakola</h1>
-
-          <p class="title">Data Engineer/Scientist</p>
-          <p class="title">Software Engineer</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="cloud-download-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">CV</p>
-              <a href="https://drive.google.com/file/d/16JPiUPRtE6BD2Q0PFtvfXGZJ7I-H58GO/view?usp=sharing" download
-                class="contact-link">Download CV</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:keammakola@gmail.com" class="contact-link">keammakola@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+27 60 314 7697" class="contact-link">+27 60 314 7697</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="logo-github"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">GitHub</p>
-
-              <a href="https://github.com/keammakola" class="contact-link">keammakola</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">LinkedIn</p>
-
-              <a href="https://linkedin.com/in/keammakola" class="contact-link">keammakola</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Johannesburg, South Africa</address>
-            </div>
-
-          </li>
-
-
-        </ul>
-
-        <div class="separator"></div>
-
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link onclick="showPage('about')">About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link onclick="showPage('resume')">Resume</button>
-          </li>
-
-
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link onclick="showPage('contact')">Contact</button>
-          </li>
-
-        </ul>
-
-      </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-            I’m Keabetswe Mmakola, a Gauteng-based engineer who lives at the intersection of code and clarity. By
-            combining software, data engineering, and data science, I turn messy, fragmented data into a roadmap for
-            business growth. I build the tools that make "data-driven" actually mean something.
-          </p>
-
-          <p>
-            My expertise spans the entire data lifecycle - from building robust ETL pipelines and cloud infrastructure
-            to developing machine learning models and creating compelling visualisations. I'm particularly passionate
-            about sharing knowledge through public speaking and educational content creation.
-          </p>
-
-          <p>
-            Away from the screen, you’ll find me mentoring new developers, contributing to the open-source community, or
-            creating tutorials for my YouTube channel, Study Squad SA, to help high schoolers navigate complex topics
-            taught at school.
-          </p>
-        </section>
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">My Focus Areas</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <ion-icon name="analytics-outline"></ion-icon>
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Data Engineering/Science</h4>
-
-                <p class="service-item-text">
-                  Building robust data pipelines, ML models, and analytics solutions to transform raw data into business
-                  value.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <ion-icon name="server-outline"></ion-icon>
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">DevOps</h4>
-
-                <p class="service-item-text">
-                  Automating deployments and managing cloud infrastructure with Docker, Kubernetes, and CI/CD pipelines.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <ion-icon name="mic-outline"></ion-icon>
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Public Speaking</h4>
-
-                <p class="service-item-text">
-                  Sharing knowledge at tech conferences and workshops, inspiring the next generation of developers.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <ion-icon name="logo-youtube"></ion-icon>
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">YouTube Tutorials</h4>
-
-                <p class="service-item-text">
-                  Creating educational content on Study Squad SA to help high school students master their school
-                  subjects and build a strong academic foundation.
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - featured projects
-        -->
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Featured Projects</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <a href="https://get-hired-one-ashen.vercel.app/" target="_blank" rel="noopener noreferrer"
-                class="content-card clickable-card">
-
-                <div class="project-icon-box">
-                  <ion-icon name="analytics-outline"></ion-icon>
-                </div>
-
-                <h4 class="h4 testimonials-item-title">Get Hired</h4>
-
-                <div class="testimonials-text">
-                  <p>
-                    An AI-powered job application assistant that replaces guesswork with data-driven
-                    insights, offering recruiter-level CV audits, instant compatibility scoring, and tailored cover
-                    letters to help you land your dream role faster and smarter.
-                  </p>
-                </div>
-
-              </a>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card">
-
-                <div class="project-icon-box">
-                  <ion-icon name="pizza"></ion-icon>
-                </div>
-
-                <h4 class="h4 testimonials-item-title">Zest</h4>
-
-                <div class="testimonials-text">
-                  <p>
-                    Break free from mealtime boredom with creative discovery. Our tool offers ingredient-based search, smart effort-level tags, and instant visual motivation to replace routine and spark culinary inspiration.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card">
-
-                <div class="project-icon-box">
-                  <ion-icon name="bar-chart-outline"></ion-icon>
-                </div>
-
-                <h4 class="h4 testimonials-item-title">SpazaMate (Coming Soon!)</h4>
-
-                <div class="testimonials-text">
-                  <p>
-                    A digital tool tailored for local businesses (Spaza shops) to connect with customers electronically
-                    and make transactions seamless.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card">
-
-                <div class="project-icon-box">
-                  <ion-icon name="cloud-outline"></ion-icon>
-                </div>
-
-                <h4 class="h4 testimonials-item-title">Thryfta (Coming Soon!)</h4>
-
-                <div class="testimonials-text">
-                  <p>
-                    A mobile application designed to help users find the best deals on products and services, access
-                    their loyalty cards and coupons, locate stores and navigate to them.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
-        </div>
-
-
-
-
-      </article>
-
-
-
-
-
-      <!--
-        - #RESUME
-      -->
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-        <div class="sidebar-info_more">
-
-          <div class="separator"></div>
-
-          <ul class="contacts-list">
-
-
-
-          </ul>
-
-          <div class="separator"></div>
-
-        </div>
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Education</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">CS50P: Python Programming</h4>
-
-              <span>Harvard University | 2025</span>
-
-              <p class="timeline-text">
-                Learnt Python fundamentals including algorithms, data structures, and problem-solving techniques.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">CS50SQL: Introduction to Databases with SQL</h4>
-
-              <span>Harvard University | 2025</span>
-
-              <p class="timeline-text">
-                CS50SQL taught me the fundamentals of SQL and database management, including writing queries, designing
-                schemas, and handling data efficiently through practical exercises.
-              </p>
-
-            </li>
-
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">WeThinkCode_ GenAI Course for Software Engineers</h4>
-
-              <span>WeThinkCode | 2025</span>
-
-              <p class="timeline-text">
-                Learnt the basics of artificial intelligence, including machine learning concepts, neural networks, and
-                practical AI applications to solve real-world problems.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Software Engineering</h4>
-
-              <span>WeThinkCode | 2024-2025</span>
-
-              <p class="timeline-text">
-                As a WeThinkCode_ student, I built numerous software products, often collaborating in teams, hosted
-                workshops, mentored incoming students, and actively contributed to campus social structures. These
-                experiences strengthened my skills in Python, Java, web development, and collaborative problem-solving,
-                while fostering a passion for creating user-friendly software and sharing knowledge with others.
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <!-- <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Creative director</h4>
-
-              <span>2015 — Present</span>
-
-              <p class="timeline-text">
-                Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas
-                molestias
-                exceptur.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Art director</h4>
-
-              <span>2013 — 2015</span>
-
-              <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Web designer</h4>
-
-              <span>2010 — 2013</span>
-
-              <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section> -->
-
-        <section class="skill">
-
-          <h3 class="h3 skills-title">Tech Arsenal</h3>
-
-          <div class="tech-categories">
-
-            <div class="tech-category">
-              <h4 class="category-title">Programming</h4>
-              <div class="tech-grid">
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="logo-python"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">Python</h4>
-                  <p class="tech-desc">Core Language</p>
-                </div>
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="server-outline"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">SQL</h4>
-                  <p class="tech-desc">Data Queries</p>
-                </div>
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="code-outline"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">Java</h4>
-                  <p class="tech-desc">Enterprise</p>
-                </div>
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="stats-chart-outline"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">R</h4>
-                  <p class="tech-desc">Statistics</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="tech-category">
-              <h4 class="category-title">Data Processing</h4>
-              <div class="tech-grid">
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="flash-outline"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">Spark</h4>
-                  <p class="tech-desc">Big Data</p>
-                </div>
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="cube-outline"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">Pandas</h4>
-                  <p class="tech-desc">Data Wrangling</p>
-                </div>
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="git-network-outline"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">Airflow</h4>
-                  <p class="tech-desc">Orchestration</p>
-                </div>
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="swap-horizontal-outline"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">Kafka</h4>
-                  <p class="tech-desc">Streaming</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="tech-category">
-              <h4 class="category-title">Machine Learning</h4>
-              <div class="tech-grid">
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="hardware-chip-outline"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">Scikit-learn</h4>
-                  <p class="tech-desc">ML Library</p>
-                </div>
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="pulse-outline"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">TensorFlow</h4>
-                  <p class="tech-desc">Deep Learning</p>
-                </div>
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="flame-outline"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">PyTorch</h4>
-                  <p class="tech-desc">Neural Networks</p>
-                </div>
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="trending-up-outline"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">XGBoost</h4>
-                  <p class="tech-desc">Gradient Boosting</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="tech-category">
-              <h4 class="category-title">Cloud & Infrastructure</h4>
-              <div class="tech-grid">
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="cloud-outline"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">AWS/GCP/AZURE</h4>
-                  <p class="tech-desc">Cloud Platforms</p>
-                </div>
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="logo-docker"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">Docker</h4>
-                  <p class="tech-desc">Containerization</p>
-                </div>
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                      style="width: 1em; height: 1em;">
-                      <title>Kubernetes</title>
-                      <path
-                        d="M10.204 14.35l.007.01-.999 2.413a5.171 5.171 0 0 1-2.075-2.597l2.578-.437.004.005a.44.44 0 0 1 .484.606zm-.833-2.129a.44.44 0 0 0 .173-.756l.002-.011L7.585 9.7a5.143 5.143 0 0 0-.73 3.255l2.514-.725.002-.009zm1.145-1.98a.44.44 0 0 0 .699-.337l.01-.005.15-2.62a5.144 5.144 0 0 0-3.01 1.442l2.147 1.523.004-.002zm.76 2.75l.723.349.722-.347.18-.78-.5-.623h-.804l-.5.623.179.779zm1.5-3.095a.44.44 0 0 0 .7.336l.008.003 2.134-1.513a5.188 5.188 0 0 0-2.992-1.442l.148 2.615.002.001zm10.876 5.97l-5.773 7.181a1.6 1.6 0 0 1-1.248.594l-9.261.003a1.6 1.6 0 0 1-1.247-.596l-5.776-7.18a1.583 1.583 0 0 1-.307-1.34L2.1 5.573c.108-.47.425-.864.863-1.073L11.305.513a1.606 1.606 0 0 1 1.385 0l8.345 3.985c.438.209.755.604.863 1.073l2.062 8.955c.108.47-.005.963-.308 1.34zm-3.289-2.057c-.042-.01-.103-.026-.145-.034-.174-.033-.315-.025-.479-.038-.35-.037-.638-.067-.895-.148-.105-.04-.18-.165-.216-.216l-.201-.059a6.45 6.45 0 0 0-.105-2.332 6.465 6.465 0 0 0-.936-2.163c.052-.047.15-.133.177-.159.008-.09.001-.183.094-.282.197-.185.444-.338.743-.522.142-.084.273-.137.415-.242.032-.024.076-.062.11-.089.24-.191.295-.52.123-.736-.172-.216-.506-.236-.745-.045-.034.027-.08.062-.111.088-.134.116-.217.23-.33.35-.246.25-.45.458-.673.609-.097.056-.239.037-.303.033l-.19.135a6.545 6.545 0 0 0-4.146-2.003l-.012-.223c-.065-.062-.143-.115-.163-.25-.022-.268.015-.557.057-.905.023-.163.061-.298.068-.475.001-.04-.001-.099-.001-.142 0-.306-.224-.555-.5-.555-.275 0-.499.249-.499.555l.001.014c0 .041-.002.092 0 .128.006.177.044.312.067.475.042.348.078.637.056.906a.545.545 0 0 1-.162.258l-.012.211a6.424 6.424 0 0 0-4.166 2.003 8.373 8.373 0 0 1-.18-.128c-.09.012-.18.04-.297-.029-.223-.15-.427-.358-.673-.608-.113-.12-.195-.234-.329-.349-.03-.026-.077-.062-.111-.088a.594.594 0 0 0-.348-.132.481.481 0 0 0-.398.176c-.172.216-.117.546.123.737l.007.005.104.083c.142.105.272.159.414.242.299.185.546.338.743.522.076.082.09.226.1.288l.16.143a6.462 6.462 0 0 0-1.02 4.506l-.208.06c-.055.072-.133.184-.215.217-.257.081-.546.11-.895.147-.164.014-.305.006-.48.039-.037.007-.09.02-.133.03l-.004.002-.007.002c-.295.071-.484.342-.423.608.061.267.349.429.645.365l.007-.001.01-.003.129-.029c.17-.046.294-.113.448-.172.33-.118.604-.217.87-.256.112-.009.23.069.288.101l.217-.037a6.5 6.5 0 0 0 2.88 3.596l-.09.218c.033.084.069.199.044.282-.097.252-.263.517-.452.813-.091.136-.185.242-.268.399-.02.037-.045.095-.064.134-.128.275-.034.591.213.71.248.12.556-.007.69-.282v-.002c.02-.039.046-.09.062-.127.07-.162.094-.301.144-.458.132-.332.205-.68.387-.897.05-.06.13-.082.215-.105l.113-.205a6.453 6.453 0 0 0 4.609.012l.106.192c.086.028.18.042.256.155.136.232.229.507.342.84.05.156.074.295.145.457.016.037.043.09.062.129.133.276.442.402.69.282.247-.118.341-.435.213-.71-.02-.039-.045-.096-.065-.134-.083-.156-.177-.261-.268-.398-.19-.296-.346-.541-.443-.793-.04-.13.007-.21.038-.294-.018-.022-.059-.144-.083-.202a6.499 6.499 0 0 0 2.88-3.622c.064.01.176.03.213.038.075-.05.144-.114.28-.104.266.039.54.138.87.256.154.06.277.128.448.173.036.01.088.019.13.028l.009.003.007.001c.297.064.584-.098.645-.365.06-.266-.128-.537-.423-.608zM16.4 9.701l-1.95 1.746v.005a.44.44 0 0 0 .173.757l.003.01 2.526.728a5.199 5.199 0 0 0-.108-1.674A5.208 5.208 0 0 0 16.4 9.7zm-4.013 5.325a.437.437 0 0 0-.404-.232.44.44 0 0 0-.372.233h-.002l-1.268 2.292a5.164 5.164 0 0 0 3.326.003l-1.27-2.296h-.01zm1.888-1.293a.44.44 0 0 0-.27.036.44.44 0 0 0-.214.572l-.003.004 1.01 2.438a5.15 5.15 0 0 0 2.081-2.615l-2.6-.44-.004.005z" />
-                    </svg>
-                  </div>
-                  <h4 class="tech-name">Kubernetes</h4>
-                  <p class="tech-desc">Orchestration</p>
-                </div>
-                <div class="tech-card">
-                  <div class="tech-icon">
-                    <ion-icon name="logo-github"></ion-icon>
-                  </div>
-                  <h4 class="tech-name">Git</h4>
-                  <p class="tech-desc">Version Control</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </section>
-      </article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <!--
-        - #CONTACT
-      -->
-
-      <article class="contact" data-page="contact">
-
-        <header>
-
-
-          <h2 class="h2 article-title">Let's Create Something Amazing</h2>
-          <p class="contact-subtitle">Ready to transform your data challenges into breakthrough solutions?</p>
-        </header>
-
-        <section class="contact-hero">
-          <div class="contact-methods">
-
-            <div class="contact-method">
-              <div class="method-icon">
-                <ion-icon name="mail-outline"></ion-icon>
-              </div>
-              <h3>Email Me</h3>
-              <p>Prefer email? Drop me a detailed message</p>
-              <a href="mailto:keammakola@gmail.com" class="method-btn">Send Email</a>
-            </div>
-
-            <div class="contact-method">
-              <div class="method-icon">
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </div>
-              <h3>Connect</h3>
-              <p>Let's connect professionally on LinkedIn</p>
-              <a href="https://linkedin.com/in/keammakola" class="method-btn" target="_blank">View Profile</a>
-            </div>
-
-          </div>
-        </section>
-
-        <section class="contact-form" id="contact-form">
-          <div class="form-container">
-            <div class="form-header">
-              <h3 class="form-title">Ready to Launch Your Project?</h3>
-              <p class="form-description">Tell me about your data challenges, and let's build the perfect solution
-                together.</p>
-            </div>
-
-            <form action="https://formspree.io/f/xaqnrnod" method="POST" class="modern-form" data-form>
-
-              <div class="form-group">
-                <label for="name">What should I call you?</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required data-form-input>
-              </div>
-
-              <div class="form-group">
-                <label for="email">How can I reach you?</label>
-                <input type="email" id="email" name="email" placeholder="your.email@example.com" required
-                  data-form-input>
-              </div>
-
-              <div class="form-group">
-                <label for="message">Tell me about your project</label>
-                <textarea id="message" name="message"
-                  placeholder="Describe your data challenges, goals, and what success looks like for you..." rows="6"
-                  required data-form-input></textarea>
-              </div>
-
-              <button type="submit" class="submit-btn" data-form-btn>
-                <ion-icon name="rocket-outline"></ion-icon>
-                <span>Launch Project</span>
-              </button>
-
-            </form>
-          </div>
-        </section>
-
-        <section class="contact-footer">
-          <div class="footer-content">
-            <h3>Based in Johannesburg, Working Globally</h3>
-            <p>Available for remote collaboration and on-site projects across South Africa</p>
-            <div class="contact-links">
-              <a href="tel:+27603147697" class="contact-link">
-                <ion-icon name="call-outline"></ion-icon>
-                +27 60 314 7697
-              </a>
-              <a href="mailto:keammakola@gmail.com" class="contact-link">
-                <ion-icon name="mail-outline"></ion-icon>
-                keammakola@gmail.com
-              </a>
-            </div>
-          </div>
-        </section>
-
-      </article>
-
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">KM.</a>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#resume" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
     </div>
+  </nav>
 
-  </main>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-container">
+      <div class="hero-content fade-in-up">
+        <p class="hero-subtitle">Hello, I'm</p>
+        <h1 class="hero-title">Kea Mmakola</h1>
+        <h2 class="hero-role">Software Engineer & Cloud/Data Enthusiast</h2>
+        <p class="hero-description">
+          Creating scalable software and leveraging cloud technologies to transform data into impactful solutions.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="https://drive.google.com/file/d/16JPiUPRtE6BD2Q0PFtvfXGZJ7I-H58GO/view?usp=sharing"
+            class="btn btn-secondary" target="_blank" download>Download CV <ion-icon
+              name="cloud-download-outline"></ion-icon></a>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/keammakola" target="_blank" aria-label="GitHub"><ion-icon
+              name="logo-github"></ion-icon></a>
+          <a href="https://linkedin.com/in/keammakola" target="_blank" aria-label="LinkedIn"><ion-icon
+              name="logo-linkedin"></ion-icon></a>
+          <a href="mailto:keammakola@gmail.com" aria-label="Email"><ion-icon name="mail-outline"></ion-icon></a>
+        </div>
+      </div>
+      <div class="hero-image fade-in-up delay-200">
+        <div class="image-wrapper">
+          <img src="./assets/images/my-avatar.png" alt="Kea Mmakola">
+        </div>
+      </div>
+    </div>
+    <div class="scroll-down">
+      <a href="#about">
+        <span class="scroll-text">Scroll Down</span>
+        <ion-icon name="arrow-down-outline"></ion-icon>
+      </a>
+    </div>
+  </section>
 
+  <!-- About Section -->
+  <section id="about" class="about section-padding">
+    <div class="container">
+      <h2 class="section-title fade-in-up">About Me</h2>
+      <div class="about-content">
+        <div class="about-text fade-in-up">
+          <p>
+            I’m a Gauteng-based Software Engineer with a deep passion for Cloud and Data technologies. I thrive on
+            designing
+            scalable systems and turning raw data into actionable insights.
+          </p>
+          <p>
+            My expertise lies in full-stack development, cloud infrastructure, and data engineering. I love building
+            robust applications and efficient data pipelines that drive real business value.
+          </p>
 
+        </div>
 
+        <div class="services-grid">
+          <div class="service-card fade-in-up delay-100">
+            <div class="icon-box"><ion-icon name="code-slash-outline"></ion-icon></div>
+            <h3>Software Engineering</h3>
+            <p>Developing scalable, high-performance web applications and efficient backend systems.</p>
+          </div>
+          <div class="service-card fade-in-up delay-200">
+            <div class="icon-box"><ion-icon name="cloud-outline"></ion-icon></div>
+            <h3>Cloud & Data</h3>
+            <p>Architecting robust cloud infrastructure and managing data lifecycles from ingestion to production.</p>
+          </div>
+          <div class="service-card fade-in-up delay-300">
+            <div class="icon-box"><ion-icon name="server-outline"></ion-icon></div>
+            <h3>DevOps</h3>
+            <p>Streamlining development with CI/CD pipelines, Docker, Kubernetes, and automated cloud deployments.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Skills Section -->
+  <section id="skills" class="skills section-padding">
+    <div class="container">
+      <h2 class="section-title fade-in-up">Tech Arsenal</h2>
 
+      <div class="skills-grid">
 
-  <!--
-    - custom js link
-  -->
+        <!-- Languages -->
+        <div class="skill-category fade-in-up">
+          <h3>Languages</h3>
+          <div class="tech-list">
+            <div class="tech-item"><ion-icon name="logo-python"></ion-icon> <span>Python</span></div>
+            <div class="tech-item"><ion-icon name="server-outline"></ion-icon> <span>SQL</span></div>
+            <div class="tech-item"><ion-icon name="code-outline"></ion-icon> <span>Java</span></div>
+          </div>
+        </div>
+
+        <!-- Frameworks -->
+        <div class="skill-category fade-in-up delay-100">
+          <h3>Frameworks</h3>
+          <div class="tech-list">
+            <div class="tech-item"><ion-icon name="flash-outline"></ion-icon> <span>Django</span></div>
+            <div class="tech-item"><ion-icon name="swap-horizontal-outline"></ion-icon> <span>FastAPI</span></div>
+            <div class="tech-item"><ion-icon name="cube-outline"></ion-icon> <span>Spring Boot</span></div>
+          </div>
+        </div>
+
+        <!-- Cloud & Infrastructure -->
+        <div class="skill-category fade-in-up delay-300">
+          <h3>Cloud & Infrastructure</h3>
+          <div class="tech-list">
+            <div class="tech-item"><ion-icon name="cloud-outline"></ion-icon> <span>AWS / GCP</span></div>
+            <div class="tech-item"><ion-icon name="logo-docker"></ion-icon> <span>Docker</span></div>
+            <div class="tech-item"><ion-icon name="grid-outline"></ion-icon> <span>Kubernetes</span></div>
+            <div class="tech-item"><ion-icon name="logo-github"></ion-icon> <span>Git</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects section-padding">
+    <div class="container">
+      <h2 class="section-title fade-in-up">Featured Projects</h2>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <a href="https://get-hired-one-ashen.vercel.app/" target="_blank" class="project-card fade-in-up">
+          <div class="project-icon"><ion-icon name="analytics-outline"></ion-icon></div>
+          <div class="project-info">
+            <h3>Get Hired</h3>
+            <p>An AI-powered job application assistant offering recruiter-level CV audits, compatibility scoring, and
+              tailored cover letters.</p>
+            <span class="view-link">View Project <ion-icon name="arrow-forward-outline"></ion-icon></span>
+          </div>
+        </a>
+
+        <!-- Project 2 -->
+        <a href="https://zest-inky.vercel.app/" target="_blank" class="project-card fade-in-up delay-100">
+          <div class="project-icon"><ion-icon name="pizza-outline"></ion-icon></div>
+          <div class="project-info">
+            <h3>Zest</h3>
+            <p>Ingredient-based search tool with smart effort-level tags to spark culinary inspiration and replace
+              mealtime boredom.</p>
+            <span class="view-link">View Project <ion-icon name="arrow-forward-outline"></ion-icon></span>
+          </div>
+        </a>
+
+        <!-- Project 3 -->
+        <div class="project-card fade-in-up delay-200">
+          <div class="project-icon"><ion-icon name="storefront-outline"></ion-icon></div>
+          <div class="project-info">
+            <h3>SpazaMate <small>(Coming Soon)</small></h3>
+            <p>A digital tool tailored for local Spaza shops to connect with customers electronically and make
+              transactions seamless.</p>
+          </div>
+        </div>
+
+      </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="education section-padding">
+    <div class="container">
+      <h2 class="section-title fade-in-up">Education</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item fade-in-up">
+          <div class="timeline-date">2025</div>
+          <div class="timeline-content">
+            <h3>CS50P: Python Programming</h3>
+            <span class="institution">Harvard University</span>
+            <p>Mastered Python fundamentals including algorithms, data structures, and problem-solving techniques.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in-up delay-100">
+          <div class="timeline-date">2025</div>
+          <div class="timeline-content">
+            <h3>CS50SQL: Introduction to Databases</h3>
+            <span class="institution">Harvard University</span>
+            <p>Fundamentals of SQL and database management, designing schemas, and handling data efficiently.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in-up delay-200">
+          <div class="timeline-date">2025</div>
+          <div class="timeline-content">
+            <h3>GenAI Course for Software Engineers</h3>
+            <span class="institution">WeThinkCode_</span>
+            <p>Basics of AI, machine learning concepts, neural networks, and practical AI applications.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in-up delay-300">
+          <div class="timeline-date">2024 - 2025</div>
+          <div class="timeline-content">
+            <h3>Software Engineering</h3>
+            <span class="institution">WeThinkCode_</span>
+            <p>Built numerous software products, mentored students, and strengthened skills in Python, Java, and web
+              development.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="resume-download fade-in-up">
+        <a href="https://drive.google.com/file/d/16JPiUPRtE6BD2Q0PFtvfXGZJ7I-H58GO/view?usp=sharing" download
+          class="btn btn-outliE Sectne">
+          <ion-icon name="cloud-download-outline"></ion-icon> Download Full CV
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact section-padding">
+    <div class="container">
+      <div class="contact-wrapper fade-in-up">
+        <div class="contact-text">
+          <h2 class="section-title">Let's Create Something Amazing</h2>
+          <p>Ready to transform your software challenges into breakthrough solutions? Drop me a message.</p>
+
+          <div class="contact-info-items">
+            <a href="mailto:keammakola@gmail.com" class="contact-item">
+              <div class="icon"><ion-icon name="mail-outline"></ion-icon></div>
+              <span>keammakola@gmail.com</span>
+            </a>
+            <!-- <a href="tel:+27603147697" class="contact-item">
+              <div class="icon"><ion-icon name="call-outline"></ion-icon></div>
+              <span>+27 60 314 7697</span>
+            </a> -->
+            <div class="contact-item">
+              <div class="icon"><ion-icon name="location-outline"></ion-icon></div>
+              <span>Johannesburg, South Africa</span>
+            </div>
+          </div>
+        </div>
+
+        <form action="https://formspree.io/f/xaqnrnod" method="POST" class="contact-form">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary submit-btn">
+            Send Message <ion-icon name="paper-plane-outline"></ion-icon>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Kea Mmakola. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="https://github.com/keammakola"><ion-icon name="logo-github"></ion-icon></a>
+        <a href="https://linkedin.com/in/keammakola"><ion-icon name="logo-linkedin"></ion-icon></a>
+      </div>
+    </div>
+  </footer>
+
   <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 </body>
 
 </html>

@@ -569,6 +569,46 @@ img {
   display: none;
 }
 
+/* YouTube Section */
+.youtube-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  /* 16:9 Aspect Ratio */
+  position: relative;
+  height: 0;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.youtube-info {
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.youtube-info p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
 /* ... existing styles ... */
 
 /* GitHub Activity */
@@ -579,11 +619,16 @@ img {
   border: 1px solid var(--border-color);
   overflow-x: auto;
   text-align: center;
-  margin-top: 2rem;
+  width: 100%;
+  max-width: 900px;
+  /* Optional cap */
+  display: flex;
+  justify-content: center;
 }
 
 .github-heatmap img {
   max-width: 100%;
+  height: auto;
 }
 
 /* Floating Speed Dial */
@@ -930,6 +975,18 @@ img {
 
 
 
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  background-color: var(--bg-secondary);
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
 .contact-text {
   max-width: 600px;
   width: 100%;
@@ -945,6 +1002,7 @@ img {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .contact-form {

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kea Mmakola | Software Engineer & Cloud/Data Enthusiast</title>
+  <title>Keabetswe Mmakola | Software Engineer & Cloud/Data Enthusiast</title>
   <meta name="description"
     content="Portfolio of Keabetswe Mmakola, a Software Engineer & Cloud/Data Enthusiast based in Johannesburg.">
 
@@ -46,9 +46,14 @@
         <li><a href="#resume" class="nav-link">Resume</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-      <button class="mobile-menu-btn" aria-label="Toggle menu">
-        <ion-icon name="menu-outline"></ion-icon>
-      </button>
+      <div class="nav-controls" style="display: flex; gap: 1rem; align-items: center;">
+        <button class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+          <ion-icon name="moon-outline"></ion-icon>
+        </button>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -57,8 +62,15 @@
     <div class="container hero-container">
       <div class="hero-content fade-in-up">
         <p class="hero-subtitle">Hello, I'm</p>
-        <h1 class="hero-title">Kea Mmakola</h1>
+        <h1 class="hero-title">Keabetswe Mmakola</h1>
         <h2 class="hero-role">I am a <span class="typing-text"></span></h2>
+
+        <!-- Image moved here -->
+        <div class="hero-image mb-2">
+          <div class="image-wrapper">
+            <img src="assets/images/my-avatar.png" alt="Kea Mmakola - Software Engineer">
+          </div>
+        </div>
 
         <p class="hero-description">
           Creating scalable software and leveraging cloud technologies to transform data into impactful solutions.
@@ -77,11 +89,7 @@
           <a href="mailto:keammakola@gmail.com" aria-label="Email"><ion-icon name="mail-outline"></ion-icon></a>
         </div>
       </div>
-      <div class="hero-image fade-in-up delay-200">
-        <div class="image-wrapper">
-          <img src="./assets/images/my-avatar.png" alt="Kea Mmakola">
-        </div>
-      </div>
+
     </div>
     <div class="scroll-down">
       <a href="#about">
@@ -93,6 +101,7 @@
 
   <!-- About Section -->
   <section id="about" class="about section-padding">
+
     <div class="container">
       <h2 class="section-title fade-in-up">About Me</h2>
       <div class="about-content">
@@ -177,10 +186,13 @@
     <div class="container">
       <h2 class="section-title fade-in-up">Featured Projects</h2>
 
+
+
       <div class="projects-grid">
 
         <!-- Project 1 -->
-        <a href="https://get-hired-one-ashen.vercel.app/" target="_blank" class="project-card fade-in-up">
+        <a href="https://get-hired-one-ashen.vercel.app/" target="_blank" class="project-card fade-in-up"
+          data-category="data">
           <div class="project-icon"><ion-icon name="analytics-outline"></ion-icon></div>
           <div class="project-info">
             <h3>Get Hired</h3>
@@ -191,7 +203,8 @@
         </a>
 
         <!-- Project 2 -->
-        <a href="https://zest-inky.vercel.app/" target="_blank" class="project-card fade-in-up delay-100">
+        <a href="https://zest-inky.vercel.app/" target="_blank" class="project-card fade-in-up delay-100"
+          data-category="web">
           <div class="project-icon"><ion-icon name="pizza-outline"></ion-icon></div>
           <div class="project-info">
             <h3>Zest</h3>
@@ -202,7 +215,7 @@
         </a>
 
         <!-- Project 3 -->
-        <div class="project-card fade-in-up delay-200">
+        <div class="project-card fade-in-up delay-200" data-category="web">
           <div class="project-icon"><ion-icon name="storefront-outline"></ion-icon></div>
           <div class="project-info">
             <h3>SpazaMate <small>(Coming Soon)</small></h3>
@@ -212,7 +225,13 @@
         </div>
 
       </div>
+    </div>
   </section>
+
+  <!-- Back to Top Button -->
+  <a href="#home" class="back-to-top" aria-label="Back to Top">
+    <ion-icon name="arrow-up-outline"></ion-icon>
+  </a>
 
   <!-- Education Section -->
   <section id="education" class="education section-padding">

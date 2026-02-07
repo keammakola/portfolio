@@ -179,3 +179,67 @@ document.querySelectorAll('.project-card, .service-card').forEach(card => {
   });
 });
 
+/**
+ * Back to Top Button
+ */
+const backToTopBtn = document.querySelector('.back-to-top');
+
+if (backToTopBtn) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('active');
+    } else {
+      backToTopBtn.classList.remove('active');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/**
+ * Theme Toggle
+ */
+const themeToggleBtn = document.querySelector('.theme-toggle');
+const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('ion-icon') : null;
+
+// Check for saved user preference, if any, on load of the website
+if (localStorage.getItem('theme')) {
+  const currentTheme = localStorage.getItem('theme');
+  document.documentElement.setAttribute('data-theme', currentTheme);
+
+  if (currentTheme === 'light' && themeIcon) {
+    themeIcon.setAttribute('name', 'moon-outline');
+  } else if (themeIcon) {
+    themeIcon.setAttribute('name', 'sunny-outline');
+  }
+}
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', () => {
+    let currentTheme = document.documentElement.getAttribute('data-theme');
+    let targetTheme = 'light';
+
+    if (currentTheme === 'light') {
+      targetTheme = 'dark';
+    } else {
+      targetTheme = 'light';
+    }
+
+    document.documentElement.setAttribute('data-theme', targetTheme);
+    localStorage.setItem('theme', targetTheme);
+
+    if (themeIcon) {
+      if (targetTheme === 'default' || targetTheme === 'dark') { // Default is dark
+        themeIcon.setAttribute('name', 'moon-outline');
+      } else {
+        themeIcon.setAttribute('name', 'sunny-outline');
+      }
+    }
+  });
+}
+
+
+

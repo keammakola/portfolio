@@ -116,7 +116,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const typingTextElement = document.querySelector('.typing-text');
 const roles = [
   "Software Engineer",
-  "Data Scientist",
   "Cloud Enthusiast",
   "Problem Solver"
 ];

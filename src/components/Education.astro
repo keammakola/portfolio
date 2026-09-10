@@ -24,7 +24,12 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
                 <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-5 md:p-6 hover:shadow-md transition-shadow duration-300">
                   <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
                     <div>
-                      <h3 class="text-lg sm:text-xl font-semibold text-gray-900">
+                      <h3 class="text-lg sm:text-xl font-semibold text-gray-900 flex items-center gap-2">
+                        {edu.school === "Microsoft" && (
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 sm:w-6 sm:h-6 text-[#00A4EF]">
+                            <path d="M11.4 0H0v11.4h11.4V0zM24 0H12.6v11.4H24V0zM11.4 12.6H0V24h11.4V12.6zM24 12.6H12.6V24H24V12.6z" />
+                          </svg>
+                        )}
                         {edu.degree}
                       </h3>
                       <p
@@ -39,11 +44,17 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
                     </span>
                   </div>
 
-                  <ul class="space-y-2">
+                  <ul class="space-y-3 mt-4">
                     {edu.achievements.map((achievement) => (
                       <li class="flex items-start">
-                        <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0" />
-                        <span class="text-sm sm:text-base text-gray-600">
+                        {edu.school === "Microsoft" ? (
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#008AD7" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0 sm:mt-0.5 mr-2.5">
+                            <path d="M5.483 21.3l-4.1-7.227 6.467-10.74L11.583 10.1l-6.1 11.2zm6.208.016l5.06-9.155L22.64 21.3h-10.95z"/>
+                          </svg>
+                        ) : (
+                          <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0" />
+                        )}
+                        <span class="text-sm sm:text-base text-gray-700 font-medium">
                           {achievement}
                         </span>
                       </li>

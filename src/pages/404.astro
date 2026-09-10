@@ -1,0 +1,51 @@
+---
+import Footer from "../components/Footer.astro";
+import { siteConfig } from "../config";
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>404 - {siteConfig.name}</title>
+  </head>
+  <body class="flex flex-col min-h-screen bg-gray-50">
+    <main class="flex-grow flex flex-col items-center justify-center p-8 text-center relative overflow-hidden">
+      
+      <!-- Background SVG Pattern -->
+      <div class="absolute inset-0 z-0 opacity-5 pointer-events-none">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="404-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+              <path d="M0 100 V 50 Q 25 40, 50 50 T 100 50 V 100 z" fill="currentColor"></path>
+            </pattern>
+          </defs>
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#404-pattern)"></rect>
+        </svg>
+      </div>
+
+      <div class="relative z-10 max-w-2xl">
+        <h1 class="text-9xl font-black text-gray-900 tracking-tighter mb-4" style={`color: ${siteConfig.accentColor}`}>
+          404
+        </h1>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">
+          Pipeline Broken
+        </h2>
+        <p class="text-lg sm:text-xl text-gray-600 mb-10 max-w-md mx-auto leading-relaxed">
+          Looks like this route caught fire in production. The page you're looking for was either deleted, moved, or never existed.
+        </p>
+        <a 
+          href="/"
+          class="inline-flex items-center justify-center gap-x-2 rounded-full bg-gray-900 px-8 py-3.5 text-base font-semibold text-white shadow-sm hover:bg-gray-800 transition-transform hover:-translate-y-1"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          Revert to Main Branch (Home)
+        </a>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

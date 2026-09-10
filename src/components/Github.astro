@@ -1,16 +1,31 @@
 ---
 import { siteConfig } from "../config";
+
+const chartColor = siteConfig.accentColor.replace('#', '');
 ---
 
-<section class="py-8">
-  <h2 class="text-2xl font-bold mb-6">GitHub Activity</h2>
-  <div class="w-full flex justify-center overflow-x-auto">
-    <a href={`https://github.com/${siteConfig.githubUsername}`} target="_blank" rel="noopener noreferrer">
-      <img 
-        src={`https://ghchart.rshah.org/27c93f/${siteConfig.githubUsername}`} 
-        alt={`${siteConfig.name}'s GitHub Contribution Chart`} 
-        class="max-w-full"
+<section id="github" class="p-8 sm:p-12 md:p-16 lg:p-24">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+    <div class="lg:col-span-4">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 break-words">
+        GitHub
+      </h2>
+      <div
+        class="w-[75px] h-[5px] mt-2 rounded-full"
+        style={`background-color: ${siteConfig.accentColor}`}
       />
-    </a>
+    </div>
+    
+    <div class="lg:col-span-8 overflow-hidden rounded-xl bg-white border border-gray-100 shadow-sm p-4 sm:p-6 md:p-8 hover:shadow-md transition-shadow duration-300">
+      <div class="w-full overflow-x-auto">
+        <a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer">
+          <img 
+            src={`https://ghchart.rshah.org/${chartColor}/${siteConfig.githubUsername}`} 
+            alt={`${siteConfig.name}'s GitHub Contribution Chart`} 
+            class="min-w-[700px] w-full"
+          />
+        </a>
+      </div>
+    </div>
   </div>
 </section>

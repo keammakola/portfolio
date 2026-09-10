@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Keabetswe Mmakola",
-  title: "Data Engineer, Devops Engineer and Solutions Architect",
+  title: "Data Engineer | DevOps Architect | EdTech Founder",
   description:
-    "Portfolio of Keabetswe Mmakola, a Data Engineer, Devops Engineer and Solutions Architect based in Johannesburg.",
+    "Portfolio of Keabetswe Mmakola, a Data Engineer, DevOps Architect, and EdTech Founder based in Johannesburg.",
   accentColor: "#1d4ed8",
   social: {
     email: "keammakola@gmail.com",
@@ -10,12 +10,17 @@ export const siteConfig = {
     github: "https://github.com/keammakola",
   },
   aboutMe:
-    "I’m a Johannesburg-based Data Engineer, DevOps Engineer, and Solutions Architect. My philosophy is simple: I like my systems scalable, my cloud infrastructure highly available, and my data pipelines completely unbreakable. I specialise in designing scalable systems and building software that solves actual, high-impact problems—preferably without catching fire in production.\n\nTrained at WeThinkCode_, I’ve spent my career honing my expertise in Python, Java, and modern Cloud technologies. I thrive on leveraging DevOps practices to transform raw data into actionable insights and robust products.\n\nBeyond the code, I am deeply committed to democratising education. I've spent years simplifying complex high school concepts for thousands of students on my YouTube channel, Kleva Academy. Today, I'm channelling that mission into founding Kleva Academy—a next-generation, AI-powered edtech platform built to revolutionise how South African students master the CAPS curriculum.",
-  skills: {
-    languages: ["Python", "SQL", "Java"],
-    frameworks: ["Django", "FastAPI", "Spring Boot"],
-    cloudAndInfrastructure: ["AWS / GCP", "Docker", "Kubernetes", "Git"],
-  },
+    "I’m a Solutions Architect and Data Engineer with a simple philosophy: I like my coffee strong, my cloud infrastructure highly available, and my data pipelines completely unbreakable. I specialise in designing scalable systems and building software that solves actual, high-impact problems—preferably without catching fire in production.\n\n<strong class=\"text-gray-900 block mb-2\">WHAT I DO & HOW I BUILD</strong>Trained at WeThinkCode_, I’ve spent my career diving deep into backend architecture. I thrive in the complexities of the backend—wrangling rogue datasets, obsessing over seamless CI/CD pipelines, and transforming raw data into robust, actionable products.\n\n<strong class=\"text-gray-900 block mt-4 mb-2\">BEYOND THE CODE</strong>I am deeply committed to the human side of technology and democratising education across South Africa. This mission drives Kleva Academy, a project that originally began as a YouTube channel where I simplified complex high school concepts for thousands of students. Today, I have scaled it into a next-generation, AI-powered edtech platform. As the founder and lead architect, I am leveraging modern web architecture and artificial intelligence to revolutionise how South African students master the CAPS curriculum.",
+  skills: [
+    { category: "Core Languages", items: ["Python", "SQL", "Java", "Bash"] },
+    { category: "Cloud Platforms", items: ["AWS", "Azure", "Google Cloud Platform (GCP)"] },
+    { category: "Architecture & System Design", items: ["Microservices", "Event-Driven Architecture", "REST", "GraphQL"] },
+    { category: "Data Engineering & Orchestration", items: ["Apache Spark", "Apache Kafka", "dbt", "Apache Airflow"] },
+    { category: "Databases & Storage", items: ["PostgreSQL", "Snowflake", "BigQuery", "AWS S3"] },
+    { category: "DevOps & Infrastructure", items: ["Terraform", "Ansible", "Docker", "Kubernetes"] },
+    { category: "CI/CD & Version Control", items: ["GitHub Actions", "GitLab CI", "Jenkins"] },
+    { category: "Observability & Monitoring", items: ["Prometheus", "Grafana"] },
+  ],
   githubUsername: "keammakola",
   youtubePlaylistUrl:
     "https://www.youtube.com/embed/videoseries?list=PLqVV_035I4xLcKWtlQAzhh_B9my8UnReI",

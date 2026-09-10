@@ -30,21 +30,23 @@ export const siteConfig = {
       description:
         "Kleva Academy is a gamified, next-generation edtech platform designed to modernise the South African CAPS curriculum. Architected on the bleeding edge with React, TanStack Start, and Supabase, it delivers a lightning-fast, gamified study environment. It features an integrated AI Tutor, real-time curriculum tracking, interactive mock exams, and robust mathematical typesetting, providing high school students with a deeply personalised learning experience.",
       link: "https://klevaacademy.co.za",
-      skills: ["React", "AI", "Supabase", "TanStack"],
+      status: "Live",
+      skills: ["React", "TanStack Start", "Supabase", "AI Integration", "Gamification"],
     },
     {
       name: "Get Hired",
       description:
         "An AI-powered job application assistant offering recruiter-level CV audits, compatibility scoring, and tailored cover letters.",
       link: "https://get-hired-one-ashen.vercel.app/",
+      status: "In Development",
       skills: ["Python", "AI", "FastAPI"],
     },
-
     {
       name: "SDLC For Dummies",
       description:
         "An intuitive roadmap designed to demystify the Software Development Life Cycle, translating complex engineering phases into simplified, actionable steps for students, aspiring developers and dev teams.",
       link: "https://github.com/keammakola/SDLC-For-Dummies",
+      status: "Open Source",
       skills: ["DevOps", "Agile", "Software Engineering"],
     },
   ],

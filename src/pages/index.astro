@@ -20,6 +20,19 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={siteConfig.description} />
+    
+    <!-- Open Graph / LinkedIn / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteConfig.social.github} />
+    <meta property="og:title" content={`${siteConfig.name} - ${siteConfig.title}`} />
+    <meta property="og:description" content={siteConfig.description} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={siteConfig.social.github} />
+    <meta property="twitter:title" content={`${siteConfig.name} - ${siteConfig.title}`} />
+    <meta property="twitter:description" content={siteConfig.description} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -43,5 +56,39 @@ import "../styles/global.css";
     <Footer />
     <CVModal />
     <BackToTop />
+    <style>
+      @media print {
+        #back-to-top, #cv-modal, #view-cv-btn, nav, .animate-fade-in {
+          display: none !important;
+        }
+        body {
+          color: black;
+          background: white;
+        }
+        section {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
+    </style>
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-10');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      });
+
+      document.querySelectorAll('section').forEach((section) => {
+        section.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700', 'ease-out');
+        observer.observe(section);
+      });
+    </script>
   </body>
 </html>

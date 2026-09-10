@@ -44,11 +44,13 @@ export const siteConfig = {
   ],
   experience: [
     {
-      company: "Your Company",
-      title: "Software Engineer",
-      dateRange: "2025 - Present",
+      company: "Mavuma Enterprises (Cashit)",
+      title: "Software Engineer Intern",
+      dateRange: "Feb 2026 - Aug 2026",
       bullets: [
-        "Add your experience bullet points here",
+        "Contributed to the development and maintenance of scalable software solutions within the Cashit subdivision.",
+        "Collaborated with cross-functional teams to design, implement, and test new features to improve overall system performance.",
+        "Participated in agile ceremonies and assisted in resolving software bugs and technical issues."
       ],
     },
   ],

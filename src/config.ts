@@ -82,7 +82,7 @@ export const siteConfig = {
       degree: "Azure Data & Administration Certifications",
       dateRange: "Certified",
       achievements: [
-        "DP-700: Implementing Data Engineering Solutions using Microsoft Fabric",
+        "DP-700: Fabric Data Engineer Associate",
         "DP-900: Microsoft Azure Data Fundamentals",
         "AZ-104: Microsoft Azure Administrator Associate",
       ],
@@ -92,8 +92,8 @@ export const siteConfig = {
       degree: "Azure Architecture & DevOps Certifications",
       dateRange: "Certified",
       achievements: [
-        "AZ-305: Designing Microsoft Azure Infrastructure Solutions",
-        "AZ-400: Designing and Implementing Microsoft DevOps Solutions",
+        "AZ-305: Azure Solutions Architect Expert",
+        "AZ-400: DevOps Engineer Expert",
         "AZ-900: Microsoft Azure Fundamentals",
       ],
     },

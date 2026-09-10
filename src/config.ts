@@ -63,34 +63,30 @@ export const siteConfig = {
   education: [
     {
       school: "WeThinkCode_",
-      degree: "Software Engineering",
-      dateRange: "2024 - 2025",
+      degree: "Advanced Diploma in Software Engineering",
+      dateRange: "September 2024 - December 2025",
       achievements: [
-        "Built numerous software products, mentored students, and strengthened skills in Python, Java, and web development.",
+        "Intensive peer-to-peer software engineering program covering full-stack development, cloud computing, and DevOps.",
       ],
     },
     {
-      school: "Harvard Edx Online Course",
-      degree: "CS50P: Python Programming",
-      dateRange: "2025",
+      school: "Microsoft",
+      degree: "Azure Data & Administration Certifications",
+      dateRange: "Certified",
       achievements: [
-        "Mastered Python fundamentals including algorithms, data structures, and problem-solving techniques.",
+        "DP-700: Implementing Data Engineering Solutions using Microsoft Fabric",
+        "DP-900: Microsoft Azure Data Fundamentals",
+        "AZ-104: Microsoft Azure Administrator Associate",
       ],
     },
     {
-      school: "Harvard Edx Online Course",
-      degree: "CS50SQL: Introduction to Databases",
-      dateRange: "2025",
+      school: "Microsoft",
+      degree: "Azure Architecture & DevOps Certifications",
+      dateRange: "Certified",
       achievements: [
-        "Fundamentals of SQL and database management, designing schemas, and handling data efficiently.",
-      ],
-    },
-    {
-      school: "WeThinkCode_",
-      degree: "GenAI Course for Software Engineers",
-      dateRange: "2025",
-      achievements: [
-        "Basics of AI, machine learning concepts, neural networks, and practical AI applications.",
+        "AZ-305: Designing Microsoft Azure Infrastructure Solutions",
+        "AZ-400: Designing and Implementing Microsoft DevOps Solutions",
+        "AZ-900: Microsoft Azure Fundamentals",
       ],
     },
   ],

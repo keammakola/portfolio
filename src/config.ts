@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Keabetswe Mmakola",
-  title: "Data Engineer | DevOps Architect | EdTech Founder",
+  title: "Data Engineer | DevOps Expert | Solutions Architect | EdTech Founder",
   description:
-    "Portfolio of Keabetswe Mmakola, a Data Engineer, DevOps Architect, and EdTech Founder based in Johannesburg.",
+    "Portfolio of Keabetswe Mmakola, a Data Engineer, DevOps Expert, Solutions Architect, and EdTech Founder based in Johannesburg.",
   accentColor: "#1d4ed8",
   social: {
     email: "keammakola@gmail.com",

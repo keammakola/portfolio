@@ -58,16 +58,17 @@ import "../styles/global.css";
     <BackToTop />
     <style>
       @media print {
-        #back-to-top, #cv-modal, #view-cv-btn, nav, .animate-fade-in {
+        #back-to-top, #cv-modal, #view-cv-btn, nav {
           display: none !important;
         }
         body {
           color: black;
           background: white;
         }
-        section {
+        section, .animate-fade-in {
           opacity: 1 !important;
           transform: none !important;
+          animation: none !important;
         }
       }
     </style>

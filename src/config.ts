@@ -38,7 +38,7 @@ export const siteConfig = {
       description:
         "An AI-powered job application assistant offering recruiter-level CV audits, compatibility scoring, and tailored cover letters.",
       link: "https://get-hired-one-ashen.vercel.app/",
-      status: "In Development",
+      status: "Live",
       skills: ["Python", "AI", "FastAPI"],
     },
     {

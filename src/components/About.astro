@@ -35,26 +35,28 @@ const getCategoryIcon = (category: string) => {
           ))}
         </div>
 
-        <div class="mt-8">
-          <h3 class="text-xl font-bold mb-4">Tech Arsenal</h3>
+        <div class="mt-12">
+          <h3 class="text-2xl font-bold mb-6 text-gray-900">Tech Arsenal</h3>
 
-          {
-            siteConfig.skills.map((skillGroup) => (
-              <div class="mb-6">
-                <h4 class="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2" style={`--accent-color: ${siteConfig.accentColor}`}>
-                  <span set:html={getCategoryIcon(skillGroup.category)} />
-                  {skillGroup.category}
-                </h4>
-                <div class="flex flex-wrap gap-2">
-                  {skillGroup.items.map((skill: string) => (
-                    <span class="px-3 py-1.5 bg-gray-50 border border-gray-200 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-100 hover:border-gray-300 transition-colors">
-                      {skill}
-                    </span>
-                  ))}
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {
+              siteConfig.skills.map((skillGroup) => (
+                <div class="bg-white border border-gray-100 shadow-sm p-6 rounded-2xl hover:shadow-md transition-shadow duration-300">
+                  <h4 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2.5" style={`--accent-color: ${siteConfig.accentColor}`}>
+                    <span set:html={getCategoryIcon(skillGroup.category)} />
+                    {skillGroup.category}
+                  </h4>
+                  <div class="flex flex-wrap gap-2">
+                    {skillGroup.items.map((skill: string) => (
+                      <span class="px-3 py-1.5 bg-gray-50 border border-gray-200 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-100 hover:border-gray-300 transition-colors">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))
-          }
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>

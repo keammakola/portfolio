@@ -8,10 +8,10 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 
 <header
   id="header"
-  class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
 >
-  <nav class="max-w-7xl mx-auto px-8 py-4">
-    <ul class="flex items-center gap-8 justify-center">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-8 py-4 overflow-x-auto no-scrollbar">
+    <ul class="flex items-center gap-6 sm:gap-8 justify-start md:justify-center min-w-max md:min-w-0 px-2">
       <li>
         <a
           href="#about"
@@ -74,5 +74,12 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 <style>
   html {
     scroll-behavior: smooth;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 </style>

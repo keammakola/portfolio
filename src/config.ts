@@ -34,13 +34,7 @@ export const siteConfig = {
       link: "https://get-hired-one-ashen.vercel.app/",
       skills: ["Python", "AI", "FastAPI"],
     },
-    {
-      name: "Zest",
-      description:
-        "Ingredient-based search tool with smart effort-level tags to spark culinary inspiration and replace mealtime boredom.",
-      link: "https://zest-inky.vercel.app/",
-      skills: ["Python", "Flask", "Web Development"],
-    },
+
     {
       name: "SDLC For Dummies",
       description:

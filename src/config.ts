@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Keabetswe Mmakola",
-  title: "Software Engineer & Cloud/Data Enthusiast",
+  title: "Data Engineer, Devops Engineer and Solutions Architect",
   description:
-    "Portfolio of Keabetswe Mmakola, a Software Engineer & Cloud/Data Enthusiast based in Johannesburg.",
+    "Portfolio of Keabetswe Mmakola, a Data Engineer, Devops Engineer and Solutions Architect based in Johannesburg.",
   accentColor: "#1d4ed8",
   social: {
     email: "keammakola@gmail.com",
@@ -10,7 +10,7 @@ export const siteConfig = {
     github: "https://github.com/keammakola",
   },
   aboutMe:
-    "I’m a Johannesburg-based Software Engineer with a journey that bridges the gap between creative problem-solving and technical excellence. My path is driven by a desire to build systems that don't just work, but scale to meet real-world demands.\n\nTrained at WeThinkCode_, I’ve spent my career honing my skills in Python, Java, and Cloud technologies. I thrive on architecting data pipelines and leveraging DevOps practices to turn raw data into actionable insights and impactful products.\n\nBeyond the code, I am deeply committed to the human side of technology. Whether I’m mentoring fellow students or simplifying complex highschool concepts for thousands on my YouTube channel, StudySquadSA, my mission is to democratise knowledge and empower the next generation.",
+    "I’m a Johannesburg-based Data Engineer, Devops Engineer and Solutions Architect with a journey that bridges the gap between creative problem-solving and technical excellence. My path is driven by a desire to build systems that don't just work, but scale to meet real-world demands.\n\nTrained at WeThinkCode_, I’ve spent my career honing my skills in Python, Java, and Cloud technologies. I thrive on architecting data pipelines and leveraging DevOps practices to turn raw data into actionable insights and impactful products.\n\nBeyond the code, I am deeply committed to the human side of technology. Whether I’m mentoring fellow students or simplifying complex highschool concepts for thousands on my YouTube channel, StudySquadSA, my mission is to democratise knowledge and empower the next generation.",
   skills: {
     languages: ["Python", "SQL", "Java"],
     frameworks: ["Django", "FastAPI", "Spring Boot"],

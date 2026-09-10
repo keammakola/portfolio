@@ -23,7 +23,7 @@ export const siteConfig = {
     {
       name: "Kleva Academy",
       description:
-        "Kleva Academy is a gamified, next-generation edtech platform designed to modernize the South African CAPS curriculum. Architected on the bleeding edge with React, TanStack Start, and Supabase, it delivers a lightning-fast, gamified study environment. It features an integrated AI Tutor, real-time curriculum tracking, interactive mock exams, and robust mathematical typesetting, providing high school students with a deeply personalized, offline-capable learning experience.",
+        "Kleva Academy is a gamified, next-generation edtech platform designed to modernise the South African CAPS curriculum. Architected on the bleeding edge with React, TanStack Start, and Supabase, it delivers a lightning-fast, gamified study environment. It features an integrated AI Tutor, real-time curriculum tracking, interactive mock exams, and robust mathematical typesetting, providing high school students with a deeply personalised, offline-capable learning experience.",
       link: "https://klevaacademy.co.za",
       skills: ["React", "AI", "Supabase", "TanStack"],
     },
@@ -73,7 +73,7 @@ export const siteConfig = {
       degree: "Advanced Diploma in Software Engineering",
       dateRange: "September 2024 - December 2025",
       achievements: [
-        "Intensive peer-to-peer software engineering program covering full-stack development, cloud computing, and DevOps.",
+        "Intensive peer-to-peer software engineering programme covering full-stack development, cloud computing, and DevOps.",
       ],
     },
     {

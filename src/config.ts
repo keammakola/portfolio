@@ -21,6 +21,13 @@ export const siteConfig = {
     "https://www.youtube.com/embed/videoseries?list=PLqVV_035I4xLcKWtlQAzhh_B9my8UnReI",
   projects: [
     {
+      name: "Kleva Academy",
+      description:
+        "An AI-powered educational platform built with React, TanStack Start, and Supabase. Features intelligent curriculum generation, mathematical typesetting, and interactive learning components.",
+      link: "https://github.com/keammakola/Kleva-Site",
+      skills: ["React", "AI", "Supabase", "TanStack"],
+    },
+    {
       name: "Get Hired",
       description:
         "An AI-powered job application assistant offering recruiter-level CV audits, compatibility scoring, and tailored cover letters.",

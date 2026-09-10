@@ -23,7 +23,7 @@ export const siteConfig = {
     {
       name: "Kleva Academy",
       description:
-        "A next-generation edtech platform leveraging AI to dynamically generate intelligent curriculums. Architected with React, TanStack Start, and Supabase, it delivers a seamless, interactive learning experience featuring rich mathematical typesetting and real-time AI capabilities.",
+        "Kleva Academy is a gamified, next-generation edtech platform designed to modernize the South African CAPS curriculum. Architected on the bleeding edge with React, TanStack Start, and Supabase, it delivers a lightning-fast, gamified study environment. It features an integrated AI Tutor, real-time curriculum tracking, interactive mock exams, and robust mathematical typesetting, providing high school students with a deeply personalized, offline-capable learning experience.",
       link: "https://klevaacademy.co.za",
       skills: ["React", "AI", "Supabase", "TanStack"],
     },

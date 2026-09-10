@@ -1,0 +1,89 @@
+export const siteConfig = {
+  name: "Keabetswe Mmakola",
+  title: "Software Engineer & Cloud/Data Enthusiast",
+  description:
+    "Portfolio of Keabetswe Mmakola, a Software Engineer & Cloud/Data Enthusiast based in Johannesburg.",
+  accentColor: "#1d4ed8",
+  social: {
+    email: "keammakola@gmail.com",
+    linkedin: "https://linkedin.com/in/keammakola",
+    github: "https://github.com/keammakola",
+  },
+  aboutMe:
+    "I’m a Johannesburg-based Software Engineer with a journey that bridges the gap between creative problem-solving and technical excellence. My path is driven by a desire to build systems that don't just work, but scale to meet real-world demands.\n\nTrained at WeThinkCode_, I’ve spent my career honing my skills in Python, Java, and Cloud technologies. I thrive on architecting data pipelines and leveraging DevOps practices to turn raw data into actionable insights and impactful products.\n\nBeyond the code, I am deeply committed to the human side of technology. Whether I’m mentoring fellow students or simplifying complex highschool concepts for thousands on my YouTube channel, StudySquadSA, my mission is to democratise knowledge and empower the next generation.",
+  skills: {
+    languages: ["Python", "SQL", "Java"],
+    frameworks: ["Django", "FastAPI", "Spring Boot"],
+    cloudAndInfrastructure: ["AWS / GCP", "Docker", "Kubernetes", "Git"],
+  },
+  githubUsername: "keammakola",
+  youtubePlaylistUrl:
+    "https://www.youtube.com/embed/videoseries?list=PLqVV_035I4xLcKWtlQAzhh_B9my8UnReI",
+  projects: [
+    {
+      name: "Get Hired",
+      description:
+        "An AI-powered job application assistant offering recruiter-level CV audits, compatibility scoring, and tailored cover letters.",
+      link: "https://get-hired-one-ashen.vercel.app/",
+      skills: ["Python", "AI", "FastAPI"],
+    },
+    {
+      name: "Zest",
+      description:
+        "Ingredient-based search tool with smart effort-level tags to spark culinary inspiration and replace mealtime boredom.",
+      link: "https://zest-inky.vercel.app/",
+      skills: ["Python", "Flask", "Web Development"],
+    },
+    {
+      name: "SDLC For Dummies",
+      description:
+        "An intuitive roadmap designed to demystify the Software Development Life Cycle, translating complex engineering phases into simplified, actionable steps for students, aspiring developers and dev teams.",
+      link: "https://github.com/keammakola/SDLC-For-Dummies",
+      skills: ["DevOps", "Agile", "Software Engineering"],
+    },
+  ],
+  experience: [
+    {
+      company: "Your Company",
+      title: "Software Engineer",
+      dateRange: "2025 - Present",
+      bullets: [
+        "Add your experience bullet points here",
+      ],
+    },
+  ],
+  education: [
+    {
+      school: "WeThinkCode_",
+      degree: "Software Engineering",
+      dateRange: "2024 - 2025",
+      achievements: [
+        "Built numerous software products, mentored students, and strengthened skills in Python, Java, and web development.",
+      ],
+    },
+    {
+      school: "Harvard Edx Online Course",
+      degree: "CS50P: Python Programming",
+      dateRange: "2025",
+      achievements: [
+        "Mastered Python fundamentals including algorithms, data structures, and problem-solving techniques.",
+      ],
+    },
+    {
+      school: "Harvard Edx Online Course",
+      degree: "CS50SQL: Introduction to Databases",
+      dateRange: "2025",
+      achievements: [
+        "Fundamentals of SQL and database management, designing schemas, and handling data efficiently.",
+      ],
+    },
+    {
+      school: "WeThinkCode_",
+      degree: "GenAI Course for Software Engineers",
+      dateRange: "2025",
+      achievements: [
+        "Basics of AI, machine learning concepts, neural networks, and practical AI applications.",
+      ],
+    },
+  ],
+};

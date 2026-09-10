@@ -44,13 +44,19 @@ export const siteConfig = {
   ],
   experience: [
     {
-      company: "Mavuma Enterprises (Cashit)",
-      title: "Software Engineer Intern",
-      dateRange: "Feb 2026 - Aug 2026",
+      company: "Cashit (MAVUMA ENTERPRISE (PTY) LTD)",
+      title: "Infrastructure Lead",
+      dateRange: "August 2026 - Present",
       bullets: [
-        "Contributed to the development and maintenance of scalable software solutions within the Cashit subdivision.",
-        "Collaborated with cross-functional teams to design, implement, and test new features to improve overall system performance.",
-        "Participated in agile ceremonies and assisted in resolving software bugs and technical issues."
+        "Responsible for the availability, capacity, resilience, configuration and lifecycle management of Cashit’s core infrastructure."
+      ],
+    },
+    {
+      company: "Cashit (MAVUMA ENTERPRISE (PTY) LTD)",
+      title: "Intern Software Engineer",
+      dateRange: "February 2026 - July 2026",
+      bullets: [
+        "Building, extending and testing go to market infrastructure readiness."
       ],
     },
   ],

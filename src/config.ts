@@ -23,7 +23,7 @@ export const siteConfig = {
   ],
   githubUsername: "keammakola",
   youtubePlaylistUrl:
-    "https://www.youtube.com/embed/videoseries?list=PLqVV_035I4xLcKWtlQAzhh_B9my8UnReI",
+    "https://www.youtube-nocookie.com/embed/videoseries?list=PLqVV_035I4xLcKWtlQAzhh_B9my8UnReI",
   projects: [
     {
       name: "Kleva Academy",

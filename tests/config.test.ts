@@ -49,7 +49,7 @@ test("siteConfig contains GitHub username and YouTube playlist URL", () => {
   assert.equal(siteConfig.githubUsername, "keammakola");
   assert.equal(
     siteConfig.youtubePlaylistUrl,
-    "https://www.youtube.com/embed/videoseries?list=PLqVV_035I4xLcKWtlQAzhh_B9my8UnReI"
+    "https://www.youtube-nocookie.com/embed/videoseries?list=PLqVV_035I4xLcKWtlQAzhh_B9my8UnReI"
   );
 });
 

@@ -1,5 +1,6 @@
 // src/utils/hashnode.ts
 import Parser from 'rss-parser';
+import savedPosts from '../data/hashnode-posts.json' with { type: 'json' };
 
 export interface HashnodePost {
   title: string;
@@ -25,8 +26,8 @@ export async function getHashnodePosts(): Promise<HashnodePost[]> {
   try {
     feed = await parser.parseURL(HASHNODE_RSS_URL);
   } catch (error) {
-    console.warn('Hashnode feed unavailable; continuing without blog posts:', error instanceof Error ? error.message : error);
-    return [];
+    console.warn('Hashnode feed unavailable; using saved blog posts:', error instanceof Error ? error.message : error);
+    return savedPosts;
   }
   
   return feed.items.map((item) => {

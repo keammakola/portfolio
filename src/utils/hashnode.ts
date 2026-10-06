@@ -1,56 +1,34 @@
-const HASHNODE_API = 'https://gql.hashnode.com/';
-const PUBLICATION_HOST = 'kea.hashnode.dev'; // Replace with actual host later or via env
+// src/utils/hashnode.ts
+import Parser from 'rss-parser';
+
+const HASHNODE_RSS_URL = 'https://kea.hashnode.dev/rss.xml'; // Replace with actual later
+const parser = new Parser();
+
+function calculateReadTime(text: string) {
+  const wordsPerMinute = 200;
+  const noOfWords = text.split(/\s/g).length;
+  return Math.ceil(noOfWords / wordsPerMinute);
+}
 
 export async function getHashnodePosts() {
-  const query = `
-    query Publication {
-      publication(host: "${PUBLICATION_HOST}") {
-        posts(first: 10) {
-          edges {
-            node {
-              title
-              slug
-              brief
-              coverImage { url }
-              readTimeInMinutes
-              publishedAt
-            }
-          }
-        }
-      }
-    }
-  `;
-
-  const res = await fetch(HASHNODE_API, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query }),
+  const feed = await parser.parseURL(HASHNODE_RSS_URL);
+  
+  return feed.items.map((item) => {
+    // Hashnode RSS puts the slug at the end of the link
+    const slug = item.link?.split('/').filter(Boolean).pop() || '';
+    
+    return {
+      title: item.title,
+      slug: slug,
+      brief: item.contentSnippet?.substring(0, 150) + '...',
+      content: item['content:encoded'] || item.content,
+      readTimeInMinutes: calculateReadTime(item['content:encoded'] || item.content || ''),
+      publishedAt: item.pubDate,
+    };
   });
-
-  const { data } = await res.json();
-  return data?.publication?.posts?.edges?.map((edge: any) => edge.node) || [];
 }
 
 export async function getHashnodePost(slug: string) {
-  const query = `
-    query Publication {
-      publication(host: "${PUBLICATION_HOST}") {
-        post(slug: "${slug}") {
-          title
-          content { html }
-          coverImage { url }
-          publishedAt
-        }
-      }
-    }
-  `;
-
-  const res = await fetch(HASHNODE_API, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query }),
-  });
-
-  const { data } = await res.json();
-  return data?.publication?.post || null;
+  const posts = await getHashnodePosts();
+  return posts.find(post => post.slug === slug) || null;
 }

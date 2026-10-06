@@ -1,10 +1,12 @@
 ---
 // src/pages/blog/[slug].astro
 import { getHashnodePosts, getHashnodePost } from '../../utils/hashnode';
+import type { HashnodePost } from '../../utils/hashnode';
+import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
   const posts = await getHashnodePosts();
-  return posts.map((post: any) => ({
+  return posts.map((post: HashnodePost) => ({
     params: { slug: post.slug },
   }));
 }
@@ -17,12 +19,8 @@ if (!post) {
 }
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>{post.title}</title>
-  </head>
-  <body class="bg-white text-gray-900 max-w-3xl mx-auto p-8">
+<Layout title={post.title}>
+  <div class="max-w-3xl mx-auto p-8 bg-white">
     <a href="/blog" class="text-blue-600 hover:underline mb-8 inline-block">&larr; Back to Blog</a>
     
     <article class="prose lg:prose-xl">
@@ -33,5 +31,5 @@ if (!post) {
       
       <div set:html={post.content} />
     </article>
-  </body>
-</html>
+  </div>
+</Layout>

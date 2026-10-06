@@ -1,16 +1,26 @@
 // src/utils/hashnode.ts
 import Parser from 'rss-parser';
 
-const HASHNODE_RSS_URL = 'https://townhall.hashnode.com/rss.xml'; // Replaced with valid host to pass build
+export interface HashnodePost {
+  title: string;
+  slug: string;
+  brief: string;
+  content: string;
+  readTimeInMinutes: number;
+  publishedAt: string;
+}
+
+const HASHNODE_RSS_URL = 'https://keammakola.hashnode.dev/rss.xml'; // Updated with real user hashnode URL
 const parser = new Parser();
 
 function calculateReadTime(text: string) {
   const wordsPerMinute = 200;
-  const noOfWords = text.split(/\s/g).length;
+  const plainText = text.replace(/<[^>]+>/g, '');
+  const noOfWords = plainText.split(/\s+/).length;
   return Math.ceil(noOfWords / wordsPerMinute);
 }
 
-export async function getHashnodePosts() {
+export async function getHashnodePosts(): Promise<HashnodePost[]> {
   const feed = await parser.parseURL(HASHNODE_RSS_URL);
   
   return feed.items.map((item) => {
@@ -28,7 +38,7 @@ export async function getHashnodePosts() {
   });
 }
 
-export async function getHashnodePost(slug: string) {
+export async function getHashnodePost(slug: string): Promise<HashnodePost | null> {
   const posts = await getHashnodePosts();
   return posts.find(post => post.slug === slug) || null;
 }

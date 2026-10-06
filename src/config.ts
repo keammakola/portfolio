@@ -78,6 +78,7 @@ I'm also the founder of Kleva Academy, an education platform that uses AI to hel
       description:
         "I built a prediction bot just to prove your betslip will lose. A repeatable Python pipeline prepares match data, trains models, and backtests predictions, comparing a logistic baseline with XGBoost and a Dixon–Coles goals model. An interactive React evidence page presents the results, making the models and their performance easier to explore.",
       link: "https://betting.keabetswe.online",
+      sourceLink: "https://github.com/keammakola/Football-Predictor",
       status: "Open Source",
       statuses: ["Open Source", "Live"],
       skills: ["Python", "pandas", "NumPy", "SciPy", "scikit-learn", "XGBoost", "React", "TypeScript", "Vite", "Tailwind CSS"],

@@ -83,6 +83,24 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                         })}
                       </div>
                     )}
+                    {"sourceLink" in project && project.sourceLink && (
+                      <div class="flex flex-wrap gap-4 pt-2">
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="relative z-10 text-sm font-semibold text-blue-700 underline underline-offset-4 hover:text-blue-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700"
+                          aria-label={`Visit ${project.name} live site`}
+                        >Visit live site ↗</a>
+                        <a
+                          href={project.sourceLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="relative z-10 text-sm font-semibold text-blue-700 underline underline-offset-4 hover:text-blue-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700"
+                          aria-label={`View ${project.name} source code on GitHub`}
+                        >View source on GitHub ↗</a>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

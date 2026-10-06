@@ -16,13 +16,13 @@ const chartColor = siteConfig.accentColor.replace('#', '');
       />
     </div>
     
-    <div class="lg:col-span-8 overflow-hidden rounded-xl bg-white border border-gray-100 shadow-sm p-4 sm:p-6 md:p-8 hover:shadow-md transition-shadow duration-300">
-      <div class="w-full overflow-x-auto">
+    <div class="lg:col-span-8 min-w-0 overflow-hidden rounded-xl bg-white border border-gray-100 shadow-sm p-4 sm:p-6 md:p-8 hover:shadow-md transition-shadow duration-300">
+      <div class="w-full">
         <a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer">
           <img 
             src={`https://ghchart.rshah.org/${chartColor}/${siteConfig.githubUsername}`} 
             alt={`${siteConfig.name}'s GitHub Contribution Chart`} 
-            class="min-w-[700px] w-full"
+            class="block w-full max-w-full h-auto"
           />
         </a>
       </div>

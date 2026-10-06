@@ -9,11 +9,11 @@ export const siteConfig = {
     linkedin: "https://linkedin.com/in/keammakola",
     github: "https://github.com/keammakola",
   },
-  aboutMe: "I'm a software engineer focused on data engineering, DevOps, and systems architecture. I build scalable backend systems, reliable cloud infrastructure, and resilient data pipelines designed to perform predictably in production.
+  aboutMe: `I'm a software engineer focused on data engineering, DevOps, and systems architecture. I build scalable backend systems, reliable cloud infrastructure, and resilient data pipelines designed to perform predictably in production.
 
 Trained at WeThinkCode_, I enjoy solving complex backend problems, automating delivery through CI/CD, and designing systems that remain maintainable as they grow.
 
-Beyond engineering, I'm the founder of Kleva Academy, an AI powered edtech platform helping South African students master the CAPS curriculum. It brings together my two main interests: building reliable technology and using it to improve access to education."text-gray-900 block mb-2\">WHAT I DO & HOW I BUILD</strong>Trained at WeThinkCode_, I’ve spent my career diving deep into backend architecture. I thrive in the complexities of the backend—wrangling rogue datasets, obsessing over seamless CI/CD pipelines, and architecting data ecosystems that operate with quiet, boring reliability.\n\n<strong class=\"text-gray-900 block mt-4 mb-2\">BEYOND THE CODE</strong>I am deeply committed to the human side of technology and democratising education across South Africa. This mission drives Kleva Academy, a project that originally began as a YouTube channel where I simplified complex high school concepts for thousands of students. Today, I have scaled it into a next-generation, AI-powered edtech platform. As the founder and lead architect, I am leveraging modern web architecture and artificial intelligence to revolutionise how South African students master the CAPS curriculum.",
+I'm also the founder of Kleva Academy, an education platform that uses AI to help South African students master the CAPS curriculum. Having impacted over 25,000 students so far, it's where I put my engineering experience to work making learning more accessible and personal.`,
   skills: [
     { category: "Core Languages", items: ["Python", "SQL", "Java", "Bash"] },
     { category: "Cloud Platforms", items: ["AWS", "Azure", "Google Cloud Platform (GCP)"] },
@@ -31,18 +31,88 @@ Beyond engineering, I'm the founder of Kleva Academy, an AI powered edtech platf
     {
       name: "Kleva Academy",
       description:
-        "Kleva Academy is a gamified, next-generation edtech platform designed to modernise the South African CAPS curriculum. Architected on the bleeding edge with React, TanStack Start, and Supabase, it delivers a lightning-fast, gamified study environment. It features an integrated AI Tutor, real-time curriculum tracking, interactive mock exams, and robust mathematical typesetting, providing high school students with a deeply personalised learning experience.",
+        "Kleva Academy has impacted over 25,000 students so far. It is a gamified, next-generation edtech platform designed to modernise the South African CAPS curriculum. Architected on the bleeding edge with React, TanStack Start, and Supabase, it delivers a lightning-fast, gamified study environment. It features an integrated AI Tutor, real-time curriculum tracking, interactive mock exams, and robust mathematical typesetting, providing high school students with a deeply personalised learning experience.",
       link: "https://klevaacademy.co.za",
       status: "Live",
-      skills: ["React", "TanStack Start", "Supabase", "AI Integration", "Gamification"],
+      skills: ["React + TypeScript", "TanStack Start + Query", "Vite + Tailwind CSS", "Supabase + PostgreSQL", "Groq + OpenAI", "Node.js + Docker", "Testing + CI"],
+      techChoices: [
+        {
+          technologies: ["React + TypeScript"],
+          role: "React and TypeScript power the study dashboard, quizzes, profiles, and AI tutor interface. React Markdown and KaTeX render study notes and equations; Framer Motion and Lucide React provide animations and icons.",
+          reason: "Reusable components keep the interface consistent, and types catch data mismatches. Formatted explanations, readable equations, and visual feedback help students navigate and learn.",
+        },
+        {
+          technologies: ["TanStack Start + Query"],
+          role: "TanStack Start and Router handle the full-stack framework, routing, and server rendering. TanStack Query manages asynchronous fetching, caching, and server state.",
+          reason: "Connects the React interface with server logic and typed navigation, keeps application data synchronised, and reduces repeated requests.",
+        },
+        {
+          technologies: ["Vite + Tailwind CSS"],
+          role: "Development server, production builds, and responsive styling.",
+          reason: "Supports quick iteration and a consistent visual system across screen sizes.",
+        },
+        {
+          technologies: ["Supabase + PostgreSQL"],
+          role: "Authentication, database records, file storage, and access policies. Supabase Edge Functions and Deno handle AI requests, progress updates, and membership synchronisation.",
+          reason: "Provides a shared backend for student accounts, learning progress, and resources. Protected operations run on the server, keeping service credentials private.",
+        },
+        {
+          technologies: ["Groq + OpenAI"],
+          role: "AI tutoring, answer marking, and personalised study insights. pgvector and OpenAI embeddings retrieve relevant curriculum material by meaning.",
+          reason: "Grounds explanations in curriculum context, assesses student responses, and turns learning activity into personalised guidance.",
+        },
+        {
+          technologies: ["Node.js + Docker"],
+          role: "Node.js provides the production runtime, Nitro produces the server build output, and Docker packages the application into containers.",
+          reason: "Packages the application into a repeatable deployment environment.",
+        },
+        {
+          technologies: ["Testing + CI"],
+          role: "Vitest, Testing Library, and Playwright test components, behaviour, and browser journeys. ESLint, Prettier, and GitHub Actions handle code checks, formatting, and continuous integration.",
+          reason: "Checks application logic and important user journeys, keeps code consistent, and automates verification when changes are made.",
+        },
+      ],
     },
     {
-      name: "Get Hired",
+      name: "The Football Experiment",
       description:
-        "An AI-powered job application assistant offering recruiter-level CV audits, compatibility scoring, and tailored cover letters.",
-      link: "https://get-hired-one-ashen.vercel.app/",
-      status: "Live",
-      skills: ["Python", "AI", "FastAPI"],
+        "I built a prediction bot just to prove your betslip will lose. A repeatable Python pipeline prepares match data, trains models, and backtests predictions, comparing a logistic baseline with XGBoost and a Dixon–Coles goals model. An interactive React evidence page presents the results, making the models and their performance easier to explore.",
+      link: "https://betting.keabetswe.online",
+      status: "Open Source",
+      statuses: ["Open Source", "Live"],
+      skills: ["Python", "pandas", "NumPy", "SciPy", "scikit-learn", "XGBoost", "React", "TypeScript", "Vite", "Tailwind CSS"],
+      techChoices: [
+        {
+          technologies: ["Python"],
+          role: "Data preparation, model training, backtests, and export scripts.",
+          reason: "One language connects the numerical work and the repeatable pipeline.",
+        },
+        {
+          technologies: ["pandas", "NumPy"],
+          role: "Match tables, feature calculations, and probability arrays.",
+          reason: "They make chronological transformations and numerical calculations practical.",
+        },
+        {
+          technologies: ["SciPy"],
+          role: "Poisson probabilities and optimisation for Dixon–Coles.",
+          reason: "The goals model needs a probability distribution and a constrained parameter fit.",
+        },
+        {
+          technologies: ["scikit-learn", "XGBoost"],
+          role: "The logistic baseline, class encoding, evaluation metrics, and boosted trees.",
+          reason: "A simple baseline gives the more flexible model something concrete to improve on.",
+        },
+        {
+          technologies: ["React", "TypeScript"],
+          role: "The interactive evidence page and typed data components.",
+          reason: "Reusable components keep the charts consistent; types help catch mismatches in the data they consume.",
+        },
+        {
+          technologies: ["Vite", "Tailwind CSS"],
+          role: "Frontend builds and the visual system.",
+          reason: "They support quick iteration and a consistent layout across screen sizes.",
+        },
+      ],
     },
     {
       name: "SDLC For Dummies",

@@ -1,0 +1,77 @@
+---
+import { siteConfig } from "../config";
+
+const links = [
+  { id: "about", label: "About", visible: true },
+  { id: "experience", label: "Experience", visible: !!siteConfig.experience?.length },
+  { id: "education", label: "Education", visible: !!siteConfig.education?.length },
+  { id: "projects", label: "Projects", visible: !!siteConfig.projects?.length },
+  { id: "blog", label: "Blog", visible: true },
+  { id: "github", label: "GitHub", visible: true },
+  { id: "public-talks", label: "Public Talks", visible: true },
+].filter((link) => link.visible);
+---
+
+<nav aria-label="Portfolio sections" class="quick-links" style={`--accent-color: ${siteConfig.accentColor}`}>
+  <div class="desktop-links">
+    {links.map((link) => <a href={`#${link.id}`}>{link.label}</a>)}
+  </div>
+  <details class="mobile-links">
+    <summary>
+      Sections
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </summary>
+    <div class="section-menu">
+      {links.map((link) => <a href={`#${link.id}`}>{link.label}</a>)}
+    </div>
+  </details>
+</nav>
+
+<style>
+  .quick-links {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 50;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #374151;
+  }
+  .desktop-links, summary, .section-menu {
+    border: 1px solid #e5e7eb;
+    background: rgb(255 255 255 / 95%);
+    box-shadow: 0 4px 16px rgb(17 24 39 / 6%);
+    backdrop-filter: blur(12px);
+  }
+  .desktop-links { display: none; gap: 0.25rem; padding: 0.375rem; border-radius: 999px; }
+  a { display: block; padding: 0.625rem 0.875rem; border-radius: 999px; text-decoration: none; }
+  a:hover { background: #eff6ff; color: var(--accent-color); }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 3px; }
+  summary { display: flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1rem; border-radius: 999px; cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  details[open] summary svg { transform: rotate(180deg); }
+  .section-menu { position: absolute; right: 0; margin-top: 0.5rem; min-width: 11rem; padding: 0.375rem; border-radius: 1rem; }
+  @media (min-width: 768px) {
+    .quick-links { top: 1.5rem; right: 1.5rem; }
+    .desktop-links { display: flex; }
+    .mobile-links { display: none; }
+  }
+</style>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>(".mobile-links");
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => { menu.open = false; });
+  });
+  document.addEventListener("click", (event) => {
+    if (menu && event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menu?.open) {
+      menu.open = false;
+      menu.querySelector("summary")?.focus();
+    }
+  });
+</script>

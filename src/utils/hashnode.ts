@@ -1,7 +1,7 @@
 // src/utils/hashnode.ts
 import Parser from 'rss-parser';
 
-const HASHNODE_RSS_URL = 'https://kea.hashnode.dev/rss.xml'; // Replace with actual later
+const HASHNODE_RSS_URL = 'https://townhall.hashnode.com/rss.xml'; // Replaced with valid host to pass build
 const parser = new Parser();
 
 function calculateReadTime(text: string) {

@@ -2,62 +2,39 @@
 import { siteConfig } from "../config";
 
 const getCategoryIcon = (category: string) => {
-  if (category.includes("Cloud")) return `<svg class="w-5 h-5 text-[var(--accent-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>`;
-  if (category.includes("Language")) return `<svg class="w-5 h-5 text-[var(--accent-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>`;
-  if (category.includes("Data")) return `<svg class="w-5 h-5 text-[var(--accent-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>`;
-  if (category.includes("CI/CD") || category.includes("Version")) return `<svg class="w-5 h-5 text-[var(--accent-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>`;
-  if (category.includes("Architecture")) return `<svg class="w-5 h-5 text-[var(--accent-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>`;
-  // default
-  return `<svg class="w-5 h-5 text-[var(--accent-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`;
+  if (category.includes("Cloud")) return `<svg class="w-5 h-5 text-[var(--accent-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>`;
+  if (category.includes("Language")) return `<svg class="w-5 h-5 text-[var(--accent-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>`;
+  if (category.includes("Data")) return `<svg class="w-5 h-5 text-[var(--accent-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>`;
+  if (category.includes("CI/CD") || category.includes("Version")) return `<svg class="w-5 h-5 text-[var(--accent-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/></svg>`;
+  if (category.includes("Architecture")) return `<svg class="w-5 h-5 text-[var(--accent-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>`;
+  return `<svg class="w-5 h-5 text-[var(--accent-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>`;
 };
 ---
 
 <section id="about" class="px-6 sm:px-12 lg:px-24 py-12 md:py-16">
-  <div>
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-      <div class="lg:col-span-4">
-        <h2
-          class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 break-words"
-        >
-          About Me
-        </h2>
-        <div
-          class="w-[75px] h-[5px] mt-2 rounded-full"
-          style={`background-color: ${siteConfig.accentColor}`}
-        >
-        </div>
-      </div>
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 break-words">About Me</h2>
+    <div class="w-[75px] h-[5px] mt-2 rounded-full" style={`background-color: ${siteConfig.accentColor}`}></div>
 
-      <div class="lg:col-span-8 space-y-8">
-        <div class="space-y-6">
-          {siteConfig.aboutMe.split('\n\n').map((paragraph) => (
-            <p class="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-600" set:html={paragraph} />
-          ))}
-        </div>
+    <div class="mt-8 space-y-6">
+      {siteConfig.aboutMe.split('\n\n').map((paragraph) => (
+        <p class="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-600" set:html={paragraph} />
+      ))}
+    </div>
 
-        <div class="mt-12">
-          <h3 class="text-2xl font-bold mb-6 text-gray-900">Tech Arsenal</h3>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {
-              siteConfig.skills.map((skillGroup) => (
-                <div class="bg-white border border-gray-100 shadow-sm p-6 rounded-2xl hover:shadow-md transition-shadow duration-300">
-                  <h4 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2.5" style={`--accent-color: ${siteConfig.accentColor}`}>
-                    <span set:html={getCategoryIcon(skillGroup.category)} />
-                    {skillGroup.category}
-                  </h4>
-                  <div class="flex flex-wrap gap-2">
-                    {skillGroup.items.map((skill: string) => (
-                      <span class="px-3 py-1.5 bg-gray-50 border border-gray-200 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-100 hover:border-gray-300 transition-colors">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))
-            }
+    <div class="mt-12">
+      <h3 class="text-2xl font-bold mb-6 text-gray-900">Tech Arsenal</h3>
+      <div class="divide-y divide-gray-100">
+        {siteConfig.skills.map((skillGroup) => (
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 py-3">
+            <span class="text-sm font-semibold text-gray-500 sm:w-40 shrink-0">{skillGroup.category}</span>
+            <div class="flex flex-wrap gap-1.5">
+              {skillGroup.items.map((skill: string) => (
+                <span class="px-2.5 py-0.5 bg-gray-100 text-gray-700 rounded text-sm">{skill}</span>
+              ))}
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   </div>

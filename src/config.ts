@@ -116,12 +116,12 @@ I'm also the founder of Kleva Academy, an education platform that uses AI to hel
       ],
     },
     {
-      name: "SDLC For Dummies",
+      name: "Get Hired",
       description:
-        "An intuitive roadmap designed to demystify the Software Development Life Cycle, translating complex engineering phases into simplified, actionable steps for students, aspiring developers and dev teams.",
-      link: "https://github.com/keammakola/SDLC-For-Dummies",
-      status: "Open Source",
-      skills: ["DevOps", "Agile", "Software Engineering"],
+        "A career toolkit for building a CV, reviewing it against a job description, and drafting an editable cover letter. Built with Python and Flask, it uses Groq for AI-assisted reviews and generates downloadable PDFs, helping job seekers prepare tailored applications.",
+      link: "https://gethired.keabetswe.online",
+      status: "Live",
+      skills: ["Python", "Flask", "Groq", "PDF Generation", "Vercel"],
     },
   ],
   experience: [

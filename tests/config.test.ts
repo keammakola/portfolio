@@ -111,13 +111,13 @@ test("siteConfig projects contains migrated projects from index.html", () => {
   assert.equal(siteConfig.projects[0].name, "Get Hired");
   assert.equal(
     siteConfig.projects[0].link,
-    "https://get-hired-one-ashen.vercel.app/"
+    "https://gethired.keabetswe.online"
   );
   assert.equal(siteConfig.projects[1].name, "Zest");
   assert.equal(siteConfig.projects[1].link, "https://zest-inky.vercel.app/");
-  assert.equal(siteConfig.projects[2].name, "SDLC For Dummies");
+  assert.equal(siteConfig.projects[2].name, "Get Hired");
   assert.equal(
     siteConfig.projects[2].link,
-    "https://github.com/keammakola/SDLC-For-Dummies"
+    "https://gethired.keabetswe.online"
   );
 });

@@ -5,24 +5,25 @@ Integrate a headless blog into the Astro portfolio using Hashnode as the CMS and
 
 ## Architecture
 
-### 1. Data Source (Hashnode GraphQL API)
-- **API Endpoint:** `https://gql.hashnode.com/`
-- **Query Structure:** We will use a standard `fetch` request to POST GraphQL queries. We will query the `publication` node using your Hashnode host (e.g., `yourusername.hashnode.dev`) to fetch the `posts`.
-- **Required Fields:** Title, slug, brief (for the list view), cover image, read time, published date, and the full HTML content (for the individual article view).
+### 1. Data Source (Hashnode RSS Feed)
+- **Data Endpoint:** `https://yourusername.hashnode.dev/rss.xml`
+- **Data Fetching:** We will fetch the XML feed and use a lightweight RSS parser (like `rss-parser` or `fast-xml-parser`) to extract the posts.
+- **Required Fields:** Title, link/slug, description/brief, published date, and the full HTML content (for the individual article view). Note: RSS feeds do not natively provide read times without parsing the text, so we will calculate an estimated read time locally.
 
 ### 2. Routing (Astro)
 - **Blog Roll (`src/pages/blog/index.astro`):** A page displaying a list or grid of the latest posts.
-- **Article Page (`src/pages/blog/[slug].astro`):** A dynamic route. We will use Astro's `getStaticPaths()` to fetch all posts at build time and generate a dedicated, static HTML page for each post.
+- **Article Page (`src/pages/blog/[slug].astro`):** A dynamic route. We will use Astro's `getStaticPaths()` to fetch all posts via RSS at build time and generate a dedicated, static HTML page for each post.
 
 ### 3. Styling (Tailwind Typography)
 - **Plugin:** We will install `@tailwindcss/typography` via npm and add it to `package.json` / Tailwind config.
-- **Implementation:** Hashnode returns post content as raw HTML. We will wrap this HTML in a container with the `prose` class (Tailwind Typography's signature class). This automatically styles all headings, paragraphs, blockquotes, and code blocks to match a clean, readable design.
+- **Implementation:** The RSS feed provides post content as raw HTML. We will wrap this HTML in a container with the `prose` class (Tailwind Typography's signature class). This automatically styles all headings, paragraphs, blockquotes, and code blocks to match a clean, readable design.
 
 ### 4. Configuration
-- We will define the Hashnode Publication Host (e.g., `kea.hashnode.dev`) in a configuration file or directly in the fetch utility so it can be easily updated. No private API keys are required since public posts are openly accessible via the API.
+- We will define the Hashnode RSS Feed URL (e.g., `https://kea.hashnode.dev/rss.xml`) in a configuration file or directly in the fetch utility.
 
 ## Data Flow
-1. Developer runs `npm run build` (or visits a page in `dev` mode).
-2. Astro executes the GraphQL fetch function against `gql.hashnode.com`.
-3. The JSON response is parsed and the data is passed as props to the Astro page components.
-4. Astro generates the final static HTML.
+1. Developer runs `npm run build`.
+2. Astro executes the RSS fetch function against the Hashnode RSS URL.
+3. The XML response is parsed into JavaScript objects.
+4. The data is passed as props to the Astro page components.
+5. Astro generates the final static HTML.

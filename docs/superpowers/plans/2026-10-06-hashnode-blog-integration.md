@@ -2,16 +2,15 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Integrate a headless blog into the Astro portfolio using Hashnode's GraphQL API.
+**Goal:** Integrate a headless blog into the Astro portfolio using Hashnode's RSS feed.
 
-**Architecture:** Fetch posts at build time using Astro's SSG capabilities and display them using Tailwind Typography for styling.
+**Architecture:** Fetch posts from the RSS feed at build time using Astro's SSG capabilities, parse the XML, and display them using Tailwind Typography for styling.
 
-**Tech Stack:** Astro, Tailwind CSS, GraphQL (via fetch API).
+**Tech Stack:** Astro, Tailwind CSS, `rss-parser`.
 
 **Spec:** `docs/superpowers/specs/2026-10-06-hashnode-blog-integration-design.md`
 
 ## Global Constraints
-- Do not use third-party GraphQL client libraries (use native `fetch`).
 - Maintain Astro as a Static Site Generator (SSG) - no server-side rendering (SSR) adapters should be added.
 - All styles must use Tailwind CSS.
 
@@ -19,128 +18,82 @@
 
 ### Task 1: Setup Tailwind Typography
 
+(Completed)
+
+### Task 2: Create Hashnode RSS Fetch Utility
+
 **Files:**
 - Modify: `package.json`
-- Modify: `astro.config.mjs` (or tailwind config depending on setup)
-
-**Interfaces:**
-- Produces: Tailwind `prose` class available globally.
-
-- [ ] **Step 1: Install `@tailwindcss/typography`**
-
-```bash
-npm install @tailwindcss/typography
-```
-
-- [ ] **Step 2: Configure Tailwind**
-
-Update `astro.config.mjs` or `tailwind.config.mjs` to include the typography plugin. Since this project uses `@tailwindcss/vite` directly in `astro.config.mjs`, we need to add the plugin if applicable, or if it's Tailwind v4, we add it to the CSS file.
-*Wait, Tailwind CSS v4 handles plugins differently (in the main css file). Let's assume the user has an `app.css` or we just rely on standard Vite plugin setup.*
-Let's add it to `package.json` and configure it in the main CSS file or config.
-For this task, let's assume we configure it in `src/styles/global.css` for Tailwind V4, or standard plugin if v3.
-
-```css
-/* If using Tailwind v4, in the main css file, usually src/styles/global.css or similar: */
-@plugin "@tailwindcss/typography";
-```
-*(If the file doesn't exist, create it and import it in `astro.config.mjs` or the main layout).*
-Let's instruct the worker to update `package.json` and the CSS file.
-
-- [ ] **Step 3: Commit**
-
-```bash
-git add package.json package-lock.json
-git commit -m "chore: install and configure tailwindcss typography"
-```
-
-### Task 2: Create Hashnode Fetch Utility
-
-**Files:**
-- Create: `src/utils/hashnode.ts`
-- Create: `tests/hashnode.test.ts` (if vitest is available, otherwise skip)
+- Modify: `src/utils/hashnode.ts`
 
 **Interfaces:**
 - Produces: `getHashnodePosts()`, `getHashnodePost(slug: string)`
 
-- [ ] **Step 1: Write the minimal implementation**
+- [ ] **Step 1: Install `rss-parser`**
+
+```bash
+npm install rss-parser
+```
+
+- [ ] **Step 2: Rewrite the minimal implementation for RSS**
+
+Replace the existing GraphQL logic in `src/utils/hashnode.ts` with RSS parsing.
 
 ```typescript
 // src/utils/hashnode.ts
+import Parser from 'rss-parser';
 
-const HASHNODE_API = 'https://gql.hashnode.com/';
-const PUBLICATION_HOST = 'kea.hashnode.dev'; // Replace with actual host later or via env
+const HASHNODE_RSS_URL = 'https://kea.hashnode.dev/rss.xml'; // Replace with actual later
+const parser = new Parser();
+
+function calculateReadTime(text: string) {
+  const wordsPerMinute = 200;
+  const noOfWords = text.split(/\s/g).length;
+  return Math.ceil(noOfWords / wordsPerMinute);
+}
 
 export async function getHashnodePosts() {
-  const query = `
-    query Publication {
-      publication(host: "${PUBLICATION_HOST}") {
-        posts(first: 10) {
-          edges {
-            node {
-              title
-              slug
-              brief
-              coverImage { url }
-              readTimeInMinutes
-              publishedAt
-            }
-          }
-        }
-      }
-    }
-  `;
-
-  const res = await fetch(HASHNODE_API, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query }),
+  const feed = await parser.parseURL(HASHNODE_RSS_URL);
+  
+  return feed.items.map((item) => {
+    // Hashnode RSS puts the slug at the end of the link
+    const slug = item.link?.split('/').filter(Boolean).pop() || '';
+    
+    return {
+      title: item.title,
+      slug: slug,
+      brief: item.contentSnippet?.substring(0, 150) + '...',
+      content: item['content:encoded'] || item.content,
+      readTimeInMinutes: calculateReadTime(item['content:encoded'] || item.content || ''),
+      publishedAt: item.pubDate,
+    };
   });
-
-  const { data } = await res.json();
-  return data?.publication?.posts?.edges?.map((edge: any) => edge.node) || [];
 }
 
 export async function getHashnodePost(slug: string) {
-  const query = `
-    query Publication {
-      publication(host: "${PUBLICATION_HOST}") {
-        post(slug: "${slug}") {
-          title
-          content { html }
-          coverImage { url }
-          publishedAt
-        }
-      }
-    }
-  `;
-
-  const res = await fetch(HASHNODE_API, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query }),
-  });
-
-  const { data } = await res.json();
-  return data?.publication?.post || null;
+  const posts = await getHashnodePosts();
+  return posts.find(post => post.slug === slug) || null;
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [ ] **Step 3: Commit**
 
 ```bash
-git add src/utils/hashnode.ts
-git commit -m "feat: add hashnode graphql fetch utilities"
+git add package.json package-lock.json src/utils/hashnode.ts
+git commit -m "feat: refactor hashnode fetch utility to use RSS"
 ```
 
-### Task 3: Create the Blog Roll Page
+### Task 3: Update the Blog Roll Page
 
 **Files:**
-- Create: `src/pages/blog/index.astro`
+- Modify: `src/pages/blog/index.astro`
 
 **Interfaces:**
 - Consumes: `getHashnodePosts()` from `src/utils/hashnode.ts`
 
-- [ ] **Step 1: Write the Blog Roll page**
+- [ ] **Step 1: Update the Blog Roll page**
+
+Make sure it correctly uses the new RSS data structure. (The structure returned by the RSS utility is mostly compatible, but verify no GraphQL-specific fields like `coverImage.url` are breaking it).
 
 ```astro
 ---
@@ -176,19 +129,19 @@ const posts = await getHashnodePosts();
 
 - [ ] **Step 2: Check rendering**
 
-Run: `npm run build` or `npm run dev` and navigate to `/blog`. Ensure it compiles without error.
+Run: `npm run build` to ensure it compiles without error and fetches from the RSS feed successfully.
 
 - [ ] **Step 3: Commit**
 
 ```bash
 git add src/pages/blog/index.astro
-git commit -m "feat: create blog roll page"
+git commit -m "fix: update blog roll to consume RSS data"
 ```
 
 ### Task 4: Create the Article Page
 
 **Files:**
-- Create: `src/pages/blog/[slug].astro`
+- Create/Modify: `src/pages/blog/[slug].astro`
 
 **Interfaces:**
 - Consumes: `getHashnodePosts()` and `getHashnodePost(slug)` from `src/utils/hashnode.ts`
@@ -229,11 +182,7 @@ if (!post) {
         {new Date(post.publishedAt).toLocaleDateString()}
       </div>
       
-      {post.coverImage?.url && (
-        <img src={post.coverImage.url} alt={`Cover for ${post.title}`} class="mb-8 rounded-lg" />
-      )}
-      
-      <div set:html={post.content.html} />
+      <div set:html={post.content} />
     </article>
   </body>
 </html>
@@ -242,11 +191,11 @@ if (!post) {
 - [ ] **Step 2: Verify static generation**
 
 Run: `npm run build`
-Expected: Astro logs that it built `/blog/[slug]` pages successfully.
+Expected: Astro logs that it built `/blog/[slug]` pages successfully using the RSS data.
 
 - [ ] **Step 3: Commit**
 
 ```bash
 git add src/pages/blog/[slug].astro
-git commit -m "feat: create dynamic article page with typography styles"
+git commit -m "feat: create dynamic article page with typography styles (RSS)"
 ```

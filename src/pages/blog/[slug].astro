@@ -1,0 +1,37 @@
+---
+// src/pages/blog/[slug].astro
+import { getHashnodePosts, getHashnodePost } from '../../utils/hashnode';
+
+export async function getStaticPaths() {
+  const posts = await getHashnodePosts();
+  return posts.map((post: any) => ({
+    params: { slug: post.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const post = await getHashnodePost(slug!);
+
+if (!post) {
+  throw new Error(`Post not found for slug: ${slug}`);
+}
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{post.title}</title>
+  </head>
+  <body class="bg-white text-gray-900 max-w-3xl mx-auto p-8">
+    <a href="/blog" class="text-blue-600 hover:underline mb-8 inline-block">&larr; Back to Blog</a>
+    
+    <article class="prose lg:prose-xl">
+      <h1>{post.title}</h1>
+      <div class="text-gray-500 mb-8">
+        {new Date(post.publishedAt).toLocaleDateString()}
+      </div>
+      
+      <div set:html={post.content} />
+    </article>
+  </body>
+</html>

@@ -11,7 +11,7 @@ export interface HashnodePost {
 }
 
 const HASHNODE_RSS_URL = 'https://keammakola.hashnode.dev/rss.xml'; // Updated with real user hashnode URL
-const parser = new Parser();
+const parser = new Parser({ timeout: 10000 });
 
 function calculateReadTime(text: string) {
   const wordsPerMinute = 200;
@@ -21,7 +21,13 @@ function calculateReadTime(text: string) {
 }
 
 export async function getHashnodePosts(): Promise<HashnodePost[]> {
-  const feed = await parser.parseURL(HASHNODE_RSS_URL);
+  let feed;
+  try {
+    feed = await parser.parseURL(HASHNODE_RSS_URL);
+  } catch (error) {
+    console.warn('Hashnode feed unavailable; continuing without blog posts:', error instanceof Error ? error.message : error);
+    return [];
+  }
   
   return feed.items.map((item) => {
     // Hashnode RSS puts the slug at the end of the link
